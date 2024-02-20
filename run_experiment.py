@@ -1,5 +1,5 @@
 from git import Repo
-import demofunctions
+import agency_twoagents
 import datetime
 import functools
 import inspect
@@ -12,7 +12,6 @@ import pickle
 import shutil
 import sys
 import pymdp
-# import demofunctions
 import yaml
 from pymdp import utils 
 from pymdp import maths
