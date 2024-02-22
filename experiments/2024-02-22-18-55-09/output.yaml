@@ -1,0 +1,42 @@
+results:
+  endofexp_other_rating_neg: !!python/object/apply:numpy.core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    IVRormq8zz8=
+  endofexp_other_rating_pos: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    0CSuaD/lxT8=
+  endofexp_other_rating_zero: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    xGE6epWX4j8=
+  endofexp_p_self_action_press: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    AAAAAAAAAAA=
+  endofexp_self_rating_neg: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    DTcHwWF+Ij8=
+  endofexp_self_rating_pos: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    3I+rTBAR7z8=
+  endofexp_self_rating_zero: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    E/YLp/m4nT8=
