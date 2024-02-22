@@ -43,7 +43,7 @@ def setup_log_dir(data_dir, config_file):
 
 
 def setup_graph(graph_dict):
-    graph_functions = inspect.getmembers(demofunctions, inspect.isfunction)
+    graph_functions = inspect.getmembers(agency_twoagents, inspect.isfunction)
     type_str = graph_dict["type"]
     print(type_str)
     builder = None
@@ -53,34 +53,68 @@ def setup_graph(graph_dict):
             break
     if not builder:
         err = f"{type_str} does not match with any known functions in"\
-               "the graph demofunctions module"
+               "the graph agency_twoagents module"
         raise TypeError(err)
     return builder(*graph_dict["params"])
 
 
-def setup_generative_model_and_process(graph, meta, generative_process_dict, impreciseA, obj_loc_priors):
-    meta["detect_wallet"] = ["present", "absent"]
-    meta["BR_level"] = ["normal_BR", "high_BR"]
-    meta["surprise_level"] = ["low_surprise", "normal_surprise", "high_surprise"]
-    meta["BRV_level"] = ["normal_BRV", "high_BRV"]
+def setup_generative_model_and_process(generative_process_dict, 
+                                       p_outcome, outcomepref, actionpref, noactionpref, lr_pA):
+    # meta["self_agency_names"] = ['self_positivecontrol', 'self_negativecontrol', 'self_zerocontrol']
+    # meta["other_agency_names"] = ['other_positivecontrol', 'other_negativecontrol', 'other_zerocontrol']
+    # meta["self_action_names"] = ['self_buttonpress', 'self_buttonnotpress']
+    # meta["other_action_names"] = ['other_buttonpress', 'other_buttonnotpress']
 
-    wallet_agent = demofunctions.build_agent_from_graph(graph, meta, impreciseA=impreciseA, obj_loc_priors=obj_loc_priors)
-    emotional_agent = demofunctions.build_emotional_agent()
+    # """ Defining number of state factors and states """
+    # num_states = [len(meta["self_agency_names"]), len(meta["other_agency_names"]), 
+    #               len(meta["self_action_names"]), len(meta["other_action_names"])]
+    # num_factors = len(num_states)
 
-    agent_start = generative_process_dict["agent-start"]
-    object_loc = generative_process_dict["object-loc"]
-    if object_loc == -1:
-        object_loc = None
-    env = demofunctions.Environment(
-        graph, agent_start, object_loc, meta["locations"])
-    return env, wallet_agent, emotional_agent
+    # """ Defining control state factors """
+    # meta["choice_self_agency_names"] = ['no_changes']
+    # meta["choice_other_agency_names"] = ['no_changes']
+    # meta["choice_self_action_names"] = ['self_pressbutton', 'self_notpressbutton']
+    # meta["choice_other_action_names"] = ['equal_distribution']
 
-def draw_env(graph, datadir):
-    fig = plt.figure()
-    networkx.draw(graph, with_labels=True, ax=fig.add_subplot())
-    matplotlib.use("Agg")
-    fig.savefig(pathlib.Path(datadir) / "env.png")
-    plt.close(fig)
+    # """ Defining number of control states """
+    # num_controls = [len(meta["choice_self_agency_names"]), len(meta["choice_other_agency_names"]), 
+    #                 len(meta["choice_self_action_names"]), len(meta["choice_other_action_names"])]
+
+    # """ Defining observational modalities """
+    # meta["obs_outcome_names"] = ['outcome_present', 'outcome_absent']
+    # meta["obs_choice_self_names"] = ['self_buttonpress', 'self_buttonnotpress']
+    # meta["obs_choice_other_names"] = ['other_buttonpress', 'other_buttonnotpress']
+
+    # """ Defining number of observational modalities and observations """
+    # num_obs = [len(meta["obs_outcome_names"]), len(meta["obs_choice_self_names"]), 
+    #            len(meta["obs_choice_other_names"])]
+    # num_modalities = len(num_obs)
+    
+    """ Creating the focal agent (generative model) """
+    A,A_factor_list,pA = agency_twoagents.create_A(p_outcome = p_outcome)
+    B = agency_twoagents.create_B()
+    C = agency_twoagents.create_C(outcomepref = outcomepref, actionpref = actionpref, noactionpref = noactionpref)
+    D = agency_twoagents.create_D()
+    my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+                     pA=pA, control_fac_idx=agency_twoagents.controllable_indices,
+                     modalities_to_learn=agency_twoagents.learnable_modalities,
+                     lr_pA=lr_pA, use_param_info_gain=True)
+
+    """ Setting the environment / experimental task (generative process) """
+    expcondition = generative_process_dict["expcondition"]
+    p_other_action_env = generative_process_dict["p_other_action_env"]
+    p_outcome_env = generative_process_dict["p_outcome_env"]
+    
+    env = agency_twoagents.AgencyTask(expcondition, p_other_action_env, p_outcome_env)
+
+    return env, my_agent
+
+# def draw_env(graph, datadir):
+#     fig = plt.figure()
+#     networkx.draw(graph, with_labels=True, ax=fig.add_subplot())
+#     matplotlib.use("Agg")
+#     fig.savefig(pathlib.Path(datadir) / "env.png")
+#     plt.close(fig)
 
 
 def write_output(datadir, output_dict):
@@ -124,37 +158,31 @@ if __name__ == "__main__":
     except Exception:
         pass
     config = read_config(file_name)
-    graph, meta = setup_graph(config["graph"])
-    meta["obj_outcomes"] = ["visible", "not_visible"]
-    process, wallet_agent, emotional_agent = setup_generative_model_and_process(
-        graph, meta, config["generative-process"], config["impreciseA"], config["obj_loc_priors"]
+    env, my_agent = setup_generative_model_and_process(
+        config["generative-process"], 
+        config["p_outcome"], config["outcomepref"], config["actionpref"], config["noactionpref"], config["lr_pA"]
     )
- 
     if not debug:
         experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
-        draw_env(graph, experiment_dir)
 
-    multi_log = demofunctions.run_hier_model(
-        process, wallet_agent, emotional_agent, config["lower_t"], config["hier_t"], config["H_threshold"], meta
+    multi_log = agency_twoagents.run_active_inference_loop(
+        my_agent, env, T = config["T"]
     )
     if debug:
         exit(0)
     log_path = pathlib.Path(experiment_dir) / "stdout.log"
     save_multilog(experiment_dir, multi_log)
-    coverage_t = demofunctions.evaluate_coverage(multi_log, graph)
-    coverage = coverage_t[-1]
-    coverage_auc = np.trapz(coverage_t)
-    normalized_auc = coverage_auc / len(coverage_t)
-    found = demofunctions.evaluate_found(multi_log)
-    length = demofunctions.evaluate_length(multi_log)
+    length = agency_twoagents.evaluate_length(multi_log)
+    endofexp_self_rating = agency_twoagents.evaluate_endofexp_self_rating(multi_log)
+    endofexp_other_rating = agency_twoagents.evaluate_endofexp_other_rating(multi_log)
+    endofexp_p_self_action = agency_twoagents.evaluate_p_self_action(multi_log)
+
     write_output(
         experiment_dir,
         {"results":
             {
-                "coverage": float(coverage),
-                "found": found,
-                "length": length,
-                "auc": float(coverage_auc),
-                "auc_norm": float(normalized_auc)
+                "endofexp_self_rating": float(endofexp_self_rating),
+                "endofexp_other_rating": float(endofexp_other_rating),
+                "endofexp_p_self_action": float(endofexp_p_self_action)
             }
          })

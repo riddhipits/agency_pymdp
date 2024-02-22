@@ -298,7 +298,7 @@ def create_D():
 
 class AgencyTask(object):
     
-    def __init__(self, expcondition = 's_zer_o_pos' , p_other_action = 0.5, p_outcome = 1.0):
+    def __init__(self, expcondition, p_other_action_env, p_outcome_env):
         
         # defining the experimental conditions for the generative process
 #         self.expcondition_names = ['s_pos_o_zer', 's_neg_o_zer',
@@ -316,8 +316,8 @@ class AgencyTask(object):
         else:
             self.expcondition = expcondition
             
-        self.p_outcome = p_outcome
-        self.p_other_action = p_other_action
+        self.p_outcome_env = p_outcome_env
+        self.p_other_action_env = p_other_action_env
         
         self.action_other_names = ['other_pressbutton', 'other_notpressbutton']
         self.obs_outcome_names = ['outcome_present', 'outcome_absent']
@@ -325,7 +325,7 @@ class AgencyTask(object):
     def step(self, action):
 
         # sampling the other agent's actions at random (p(other_action) = 0.5)
-        self.action_other = self.action_other_names[utils.sample(np.array([self.p_other_action, 1.0-self.p_other_action]))]
+        self.action_other = self.action_other_names[utils.sample(np.array([self.p_other_action_env, 1.0-self.p_other_action_env]))]
         
         # defining what happens in the generative process: what observations are presented to the agent given certain states (actions and context)
         if action == "self_pressbutton" and self.action_other == "other_pressbutton":
@@ -333,109 +333,118 @@ class AgencyTask(object):
             observed_choice_other = "other_buttonpress"
             
             if self.expcondition == 's_pos_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_zer':
                 observed_outcome = self.obs_outcome_names[utils.sample(np.array([0.5, 0.5]))]
             elif self.expcondition == 's_pos_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_pos_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
                 
         elif action == "self_pressbutton" and self.action_other == "other_notpressbutton":
             observed_choice_self = "self_buttonpress"
             observed_choice_other = "other_buttonnotpress"
             
             if self.expcondition == 's_pos_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_zer':
                 observed_outcome = self.obs_outcome_names[utils.sample(np.array([0.5, 0.5]))]
             elif self.expcondition == 's_pos_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_pos_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
                 
         elif action == "self_notpressbutton" and self.action_other == "other_pressbutton":
             observed_choice_self = "self_buttonnotpress"
             observed_choice_other = "other_buttonpress"
             
             if self.expcondition == 's_pos_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_zer':
                 observed_outcome = self.obs_outcome_names[utils.sample(np.array([0.5, 0.5]))]
             elif self.expcondition == 's_pos_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_pos_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
                 
         elif action == "self_notpressbutton" and self.action_other == "other_notpressbutton":
             observed_choice_self = "self_buttonnotpress"
             observed_choice_other = "other_buttonnotpress"
             
             if self.expcondition == 's_pos_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_zer':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
             elif self.expcondition == 's_zer_o_zer':
                 observed_outcome = self.obs_outcome_names[utils.sample(np.array([0.5, 0.5]))]
             elif self.expcondition == 's_pos_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_pos_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_pos':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome, self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([1.0-self.p_outcome_env, self.p_outcome_env]))]
             elif self.expcondition == 's_neg_o_neg':
-                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome, 1.0-self.p_outcome]))]
+                observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
 
         obs = [observed_outcome, observed_choice_self, observed_choice_other]
 
         return obs
     
 
-def run_active_inference_loop(my_agent, my_env, T, verbose):
+def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
+    log = {
+        "choice_self_hist": [],
+        "belief_self_context_hist": [],
+        "belief_other_context_hist": [],
+        "belief_self_action_hist": [],
+        "belief_other_action_hist": [],
+        "expcondition_hist": [],
+        "outcome_hist": []
+    }
 
-    choice_self_hist = np.zeros((num_controls[2],T))
+    log["choice_self_hist"] = np.zeros((num_controls[2],T))
     
-    belief_self_context_hist = np.zeros((num_states[0], T))
-    belief_other_context_hist = np.zeros((num_states[1], T))
-    belief_self_action_hist = np.zeros((num_states[2], T))
-    belief_other_action_hist = np.zeros((num_states[3], T))
+    log["belief_self_context_hist"] = np.zeros((num_states[0], T))
+    log["belief_other_context_hist"] = np.zeros((num_states[1], T))
+    log["belief_self_action_hist"] = np.zeros((num_states[2], T))
+    log["belief_other_action_hist"] = np.zeros((num_states[3], T))
     
-    expcondition_hist = np.zeros(T)
-    outcome_hist = np.zeros((num_obs[0],T))
+    log["expcondition_hist"] = np.zeros(T)
+    log["outcome_hist"] = np.zeros((num_obs[0],T))
     
     pA_hist = []
     
@@ -445,21 +454,21 @@ def run_active_inference_loop(my_agent, my_env, T, verbose):
         
         chosen_action_id = my_agent.sample_action()
         action_id = int(chosen_action_id[2])
-        choice_self_hist[action_id,t]= 1.0
+        log["choice_self_hist"][action_id,t]= 1.0
         choice_action = choice_self_action_names[action_id]
         
         obs_label = my_env.step(choice_action)
         obs = [obs_outcome_names.index(obs_label[0]), obs_choice_self_names.index(obs_label[1]), obs_choice_other_names.index(obs_label[2])]
         
-        expcondition_hist[t] = env.expcondition_names.index(env.expcondition)
+        log["expcondition_hist"][t] = env.expcondition_names.index(env.expcondition)
         
         qs = my_agent.infer_states(obs)
-        belief_self_context_hist[:,t] = qs[0]
-        belief_other_context_hist[:,t] = qs[1]
-        belief_self_action_hist[:,t] = qs[2]
-        belief_other_action_hist[:,t] = qs[3]
+        log["belief_self_context_hist"][:,t] = qs[0]
+        log["belief_other_context_hist"][:,t] = qs[1]
+        log["belief_self_action_hist"][:,t] = qs[2]
+        log["belief_other_action_hist"][:,t] = qs[3]
         
-        outcome_hist[obs[0],t] = 1.0
+        log["outcome_hist"][obs[0],t] = 1.0
         
         pA_t = my_agent.update_A(obs)
         pA_hist.append(pA_t)
@@ -478,12 +487,13 @@ def run_active_inference_loop(my_agent, my_env, T, verbose):
         # print(q_pi.round(3))
         # print(efe.round(3))
             
-    return choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist
+    return log
 
 p_outcome_env = 1.0
 p_other_action_env = 0.5
+expcondition = None
 
-env = AgencyTask(p_other_action = p_other_action_env, p_outcome = p_outcome_env)
+env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
 T = 25
 
@@ -527,11 +537,13 @@ def plot_some_choices_beliefs(choice_self_hist, belief_self_context_hist, belief
     fig.tight_layout(pad=pad_val)
     plt.show()
 
-def plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pad_val=1.0, savefig = 1):
+def plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, belief_other_action_hist, outcome_hist, pad_val=1.0, savefig = 1):
     
     print(f'Experimental Condition (or Context): {env.expcondition}')
     
     T = choice_self_hist.shape[1]
+    # T=25
+
     fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
     
     axes[0].imshow(belief_self_context_hist, cmap = 'gray', vmin=0, vmax=1)
@@ -571,5 +583,23 @@ def plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_
         file_name = "agency_exp_" + user_enters_file_name + ".png"
         plt.savefig(file_name)
         plt.show()
+    else:
+        plt.show()
 
-plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist)
+# plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist)
+
+# FOR EXPERIMENT LOGGING
+def evaluate_length(log):
+    return len(log["outcome_hist"])
+
+def evaluate_endofexp_self_rating(log):
+    self_rating = log["belief_self_context_hist"][:,-1]
+    return self_rating
+
+def evaluate_endofexp_other_rating(log):
+    other_rating = log["belief_other_context_hist"][:,-1]
+    return other_rating
+
+def evaluate_p_self_action(log):
+    prob_self_action = (log["choice_self_hist"][0,:])/(len(log["choice_self_hist"]))
+    return prob_self_action
