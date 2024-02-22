@@ -177,12 +177,24 @@ if __name__ == "__main__":
     endofexp_other_rating = agency_twoagents.evaluate_endofexp_other_rating(multi_log)
     endofexp_p_self_action = agency_twoagents.evaluate_p_self_action(multi_log)
 
+    endofexp_self_rating_pos = endofexp_self_rating[0]
+    endofexp_self_rating_neg = endofexp_self_rating[1]
+    endofexp_self_rating_zero = endofexp_self_rating[2]
+    endofexp_other_rating_pos = endofexp_other_rating[0]
+    endofexp_other_rating_neg = endofexp_other_rating[1]
+    endofexp_other_rating_zero = endofexp_other_rating[2]
+    endofexp_p_self_action_press = endofexp_p_self_action[0]
+
     write_output(
         experiment_dir,
         {"results":
             {
-                "endofexp_self_rating": endofexp_self_rating,
-                "endofexp_other_rating": endofexp_other_rating,
-                "endofexp_p_self_action": endofexp_p_self_action
+                "endofexp_self_rating_pos": endofexp_self_rating_pos,
+                "endofexp_self_rating_neg": endofexp_self_rating_neg,
+                "endofexp_self_rating_zero": endofexp_self_rating_zero,
+                "endofexp_other_rating_pos": endofexp_other_rating_pos,
+                "endofexp_other_rating_neg": endofexp_other_rating_neg,
+                "endofexp_other_rating_zero": endofexp_other_rating_zero,
+                "endofexp_p_self_action_press": endofexp_p_self_action_press
             }
          })

@@ -29,8 +29,6 @@ echo "Done Running, parsing results."
 # take the $repeats most recent folders
 ((topN=repeats))
 folders=$(ls -t experiments | head -$topN | awk '{print "experiments/" $0 "/output.yaml"}')
-echo "Checking for output files in experiments directory..."
-ls -l experiments/
 for i in $folders
 do
     if [ ! -e $i ]
@@ -42,17 +40,22 @@ do
     fi
 done
 
-echo "Config name: $config_name"
-echo "Repeats: $repeats"
 
+average_self_rating_pos=$(echo $folders | xargs cat | grep "endofexp_self_rating_pos" |  ./average.sh)
+average_self_rating_neg=$(echo $folders | xargs cat | grep "endofexp_self_rating_neg" |  ./average.sh)
+average_self_rating_zero=$(echo $folders | xargs cat | grep "endofexp_self_rating_zero" |  ./average.sh)
+average_other_rating_pos=$(echo $folders | xargs cat | grep "endofexp_other_rating_pos" |  ./average.sh)
+average_other_rating_neg=$(echo $folders | xargs cat | grep "endofexp_other_rating_neg" |  ./average.sh)
+average_other_rating_zero=$(echo $folders | xargs cat | grep "endofexp_other_rating_zero" |  ./average.sh)
+average_p_self_action_press=$(echo $folders | xargs cat | grep "endofexp_p_self_action_press" |  ./average.sh)
 
-
-average_self_rating=$(echo $folders | xargs cat | grep "endofexp_self_rating" |  ./average.sh)
-average_other_rating=$(echo $folders | xargs cat | grep "endofexp_other_rating" |  ./average.sh)
-average_p_self_action=$(echo $folders | xargs cat | grep "endofexp_p_self_action" |  ./average.sh)
-variance_self_rating=$(echo $folders | xargs cat | grep "endofexp_self_rating" | ./variance.sh $average_self_rating)
-variance_other_rating=$(echo $folders | xargs cat | grep "endofexp_other_rating" | ./variance.sh $average_other_rating)
-variance_p_self_action=$(echo $folders | xargs cat | grep "endofexp_p_self_action" | ./variance.sh $average_p_self_action)
+variance_self_rating_pos=$(echo $folders | xargs cat | grep "endofexp_self_rating_pos" | ./variance.sh $average_self_rating_pos)
+variance_self_rating_neg=$(echo $folders | xargs cat | grep "endofexp_self_rating_neg" | ./variance.sh $average_self_rating_neg)
+variance_self_rating_zero=$(echo $folders | xargs cat | grep "endofexp_self_rating_zero" | ./variance.sh $average_self_rating_zero)
+variance_other_rating_pos=$(echo $folders | xargs cat | grep "endofexp_other_rating_pos" | ./variance.sh $average_other_rating_pos)
+variance_other_rating_neg=$(echo $folders | xargs cat | grep "endofexp_other_rating_neg" | ./variance.sh $average_other_rating_neg)
+variance_other_rating_zero=$(echo $folders | xargs cat | grep "endofexp_other_rating_zero" | ./variance.sh $average_other_rating_zero)
+variance_p_self_action_press=$(echo $folders | xargs cat | grep "endofexp_p_self_action_press" | ./variance.sh $average_p_self_action_press)
 
 overview_file="result.txt"
 if [ ! -e $overview_file ]
