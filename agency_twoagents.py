@@ -601,5 +601,6 @@ def evaluate_endofexp_other_rating(log):
     return other_rating
 
 def evaluate_p_self_action(log):
-    prob_self_action = (sum(log["choice_self_hist"][0,:]))/(len(log["choice_self_hist"]))
+    press = log["choice_self_hist"][0,:]
+    prob_self_action = (sum(press))/(len(log["choice_self_hist"]))
     return prob_self_action
