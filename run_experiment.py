@@ -181,8 +181,8 @@ if __name__ == "__main__":
         experiment_dir,
         {"results":
             {
-                "endofexp_self_rating": float(endofexp_self_rating),
-                "endofexp_other_rating": float(endofexp_other_rating),
-                "endofexp_p_self_action": float(endofexp_p_self_action)
+                "endofexp_self_rating": endofexp_self_rating,
+                "endofexp_other_rating": endofexp_other_rating,
+                "endofexp_p_self_action": endofexp_p_self_action
             }
          })
