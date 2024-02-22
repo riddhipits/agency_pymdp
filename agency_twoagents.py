@@ -489,25 +489,25 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
             
     return log
 
-p_outcome_env = 1.0
-p_other_action_env = 0.5
-expcondition = None
+# p_outcome_env = 1.0
+# p_other_action_env = 0.5
+# expcondition = None
 
-env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
+# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
-T = 25
+# T = 25
 
-A,A_factor_list,pA = create_A(p_outcome = 0.6)
-B = create_B()
-C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
-D = create_D()
-my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
-                 pA=pA, control_fac_idx=controllable_indices,
-                 modalities_to_learn=learnable_modalities,
-                 lr_pA=0.1, use_param_info_gain=True)
+# A,A_factor_list,pA = create_A(p_outcome = 0.6)
+# B = create_B()
+# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
+# D = create_D()
+# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+#                  pA=pA, control_fac_idx=controllable_indices,
+#                  modalities_to_learn=learnable_modalities,
+#                  lr_pA=0.1, use_param_info_gain=True)
 
 
-choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+# choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
 
 # functions to create plots
 def plot_some_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, pad_val=5.0):

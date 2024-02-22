@@ -166,7 +166,7 @@ if __name__ == "__main__":
         experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
 
     multi_log = agency_twoagents.run_active_inference_loop(
-        my_agent, env, T = config["T"]
+        my_agent, env, T = config["T"], verbose = False
     )
     if debug:
         exit(0)
