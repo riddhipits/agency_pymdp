@@ -1,14 +1,11 @@
 # agency_pymdp
+Riddhi J. Pitliya Feb 2024
 
-* pymdp_agency_vBasic - uses older version of 
+### Description:
+An active inference simulation of the two-agent (participant + simulated participant) agency task. The agency task is the one implemented with the Italy team. Button Pressing. Shapes. PS_ZO, NS_ZO, ZS_ZO, ZS_PO, ZS_NO.
 
-file name | configuration | issues and other notes
---- | ----- | -----
-pymdp_agency_vBasic | <ul><li>2 state factors: context, and combined actions from agents</li><li>2 observational modalities: outcome, and action combination</li><li>uses older version of pymdp</li><li>bar graphs for visualisation</li></ul>
-pymdp_agency_vBasic_v2 | <ul><li>2 state factors: context, and combined actions from agents</li><li>2 observational modalities: outcome, and action combination</li><li>uses newer version of pymdp (v 0.0.7)</li><li>grid colour graphs for visualisation</li></ul> | <ul><li>issue: actions are not chosen according to context - it always ends up at Action_compAction after t+2</li><li>issue: beliefs are not always in line with context</li></ul>
-pymdp_agency_vBasic_v3 | <ul><li>2 state factors: context, and combined actions from agents</li><li>2 observational modalities: outcome, and action combination</li><li> added start states</li><li>uses newer version of pymdp (v 0.0.7)</li><li>grid colour graphs for visualisation</li></ul> | <ul><li>issue fixed from previous version: actions are chosen according to context</li><li>issue fixed from previous version: beliefs align with context - need to test out more rigorously</li><li>issue: the following error message shows up when running the kernel repeatedly "local variable 'observed_outcome' referenced before assignment"</ul>
-pymdp_agency_vBasic_v4 | <ul><li>3 state factors: context, actions_agent1, and actions_agent2</li><li>3 observational modalities: outcome, actions_agent1, and actions_agent2</li><li>uses newer version of pymdp (v 0.0.7)</li><li>grid colour graphs for visualisation</li></ul> | This version works!
-
-https://www.notion.so/pymdp-agency-task-model-d7a1c5b349c14313921e123f849209b7
-
-
+# To run experiments from scratch: 
+1. Empty the "experiments" folder
+2. Optionally delete the "results.txt" file. Remember to save the previous version for record-keeping if you choose to delete the file. If you choose not to delete the file, the results from your experiments will be appended.
+3. Alter the parameters in config.yaml 
+4. Go to the directory where your files are in the Mac terminal (via cd), and run "./sweep.sh config.yaml 30", where the number determines the number of experiments you want to run in a set of experiments. The individual results are saved in the "experiments" folder, and the collated results are saved in the "results.txt" file.
