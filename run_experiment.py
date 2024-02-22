@@ -189,12 +189,12 @@ if __name__ == "__main__":
         experiment_dir,
         {"results":
             {
-                "endofexp_self_rating_pos": endofexp_self_rating_pos,
-                "endofexp_self_rating_neg": endofexp_self_rating_neg,
-                "endofexp_self_rating_zero": endofexp_self_rating_zero,
-                "endofexp_other_rating_pos": endofexp_other_rating_pos,
-                "endofexp_other_rating_neg": endofexp_other_rating_neg,
-                "endofexp_other_rating_zero": endofexp_other_rating_zero,
-                "endofexp_p_self_action_press": endofexp_p_self_action_press
+                "endofexp_self_rating_pos": float(endofexp_self_rating_pos),
+                "endofexp_self_rating_neg": float(endofexp_self_rating_neg),
+                "endofexp_self_rating_zero": float(endofexp_self_rating_zero),
+                "endofexp_other_rating_pos": float(endofexp_other_rating_pos),
+                "endofexp_other_rating_neg": float(endofexp_other_rating_neg),
+                "endofexp_other_rating_zero": float(endofexp_other_rating_zero),
+                "endofexp_p_self_action_press": float(endofexp_p_self_action_press)
             }
          })
