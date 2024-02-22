@@ -183,7 +183,7 @@ if __name__ == "__main__":
     endofexp_other_rating_pos = endofexp_other_rating[0]
     endofexp_other_rating_neg = endofexp_other_rating[1]
     endofexp_other_rating_zero = endofexp_other_rating[2]
-    endofexp_p_self_action_press = endofexp_p_self_action[0]
+    endofexp_p_self_action_press = endofexp_p_self_action
 
     write_output(
         experiment_dir,
