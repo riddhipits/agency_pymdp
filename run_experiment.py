@@ -81,7 +81,7 @@ def write_csv_log(multi_log):
     csv_file_path = os.path.join(folder_name, file_name)  # full path for the CSV file
 
     # wrangling the dictionary to extract the wanted columns
-    column = {
+    columns = {
         "self_press_hist": multi_log["choice_self_hist"][0],
         "belief_self_pos_hist": multi_log["belief_self_context_hist"][0],
         "belief_self_neg_hist": multi_log["belief_self_context_hist"][1], 
