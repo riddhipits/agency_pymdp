@@ -12,6 +12,7 @@ import pickle
 import shutil
 import sys
 import csv
+import os
 import pymdp
 import yaml
 from pymdp import utils 

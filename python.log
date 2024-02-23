@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 163, in <module>
-    write_csv_log(multi_log)
-  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 94, in write_csv_log
-    os.makedirs("folder_name", exist_ok=True) # check if the folder exists
-NameError: name 'os' is not defined
