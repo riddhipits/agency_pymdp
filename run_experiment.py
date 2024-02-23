@@ -97,6 +97,7 @@ def write_csv_log(multi_log):
     current_time = datetime.datetime.now()
     current_time_str = current_time.strftime("%Y-%m-%d-%H-%M-%S")
     file_name = current_time_str # file name is the date and time stamp
+    file_name += '.csv'
     
     csv_file_path = os.path.join(folder_name, file_name) # defining the full path for the CSV file
     

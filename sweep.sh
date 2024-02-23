@@ -66,20 +66,30 @@ echo "Experiment result:"
 description=$(awk '/description:/{flag=1;next}/^---$/{flag=0}flag' config.yaml | head -n 5)
 echo "experiment: $description"  | tee -a $overview_file
 echo "runs: $repeats" | tee -a $overview_file
-
+echo " "
+echo " SELF RATING "
 echo "average self rating pos: $average_self_rating_pos" | tee -a $overview_file
 echo "average self rating neg: $average_self_rating_neg" | tee -a $overview_file
 echo "average self rating zero: $average_self_rating_zero" | tee -a $overview_file
-echo "average other rating pos: $average_other_rating_pos" | tee -a $overview_file
-echo "average other rating neg: $average_other_rating_neg" | tee -a $overview_file
-echo "average other rating zero: $average_other_rating_zero" | tee -a $overview_file
-
+echo " "
 echo "variance self rating pos: $variance_self_rating_pos" | tee -a $overview_file
 echo "variance self rating neg: $variance_self_rating_neg" | tee -a $overview_file
 echo "variance self rating zero: $variance_self_rating_zero" | tee -a $overview_file
+echo " "
+echo " "
+echo " OTHER RATING "
+echo "average other rating pos: $average_other_rating_pos" | tee -a $overview_file
+echo "average other rating neg: $average_other_rating_neg" | tee -a $overview_file
+echo "average other rating zero: $average_other_rating_zero" | tee -a $overview_file
+echo " "
 echo "variance other rating pos: $variance_other_rating_pos" | tee -a $overview_file
 echo "variance other rating neg: $variance_other_rating_neg" | tee -a $overview_file
 echo "variance other rating zero: $variance_other_rating_zero" | tee -a $overview_file
+echo " "
+echo " "
+echo " PROB(SELF ACTION) "
+echo "average prob(self action): $average_p_self_action_press" | tee -a $overview_file
+echo "variance prob(self action): $variance_p_self_action_press" | tee -a $overview_file
 
 echo "sample folders: $(echo $folders | sed -e 's/\n/ /g')" >> $overview_file
 echo "================================================================================" >> $overview_file
