@@ -44,22 +44,6 @@ def setup_log_dir(data_dir, config_file):
     return str(experiment_dir), git_repo.head.commit.hexsha
 
 
-def setup_graph(graph_dict):
-    graph_functions = inspect.getmembers(agency_twoagents, inspect.isfunction)
-    type_str = graph_dict["type"]
-    print(type_str)
-    builder = None
-    for func_name, func in graph_functions:
-        if type_str in func_name:
-            builder = func
-            break
-    if not builder:
-        err = f"{type_str} does not match with any known functions in"\
-               "the graph agency_twoagents module"
-        raise TypeError(err)
-    return builder(*graph_dict["params"])
-
-
 def setup_generative_model_and_process(generative_process_dict, 
                                        p_outcome, outcomepref, actionpref, noactionpref, lr_pA):
     
@@ -96,17 +80,30 @@ def write_csv_log(multi_log):
     file_name = f"{current_time_str}.csv" # file name is created from the date and time stamp
     csv_file_path = os.path.join(folder_name, file_name)  # full path for the CSV file
 
-    num_rows = len(next(iter(multi_log.values()))) #  all lists in the multi_log must be of the same length
+    # wrangling the dictionary to extract the wanted columns
+    column = {
+        "self_press_hist": multi_log["choice_self_hist"][0],
+        "belief_self_pos_hist": multi_log["belief_self_context_hist"][0],
+        "belief_self_neg_hist": multi_log["belief_self_context_hist"][1], 
+        "belief_self_zero_hist": multi_log["belief_self_context_hist"][2], 
+        "belief_other_pos_hist": multi_log["belief_other_context_hist"][0],
+        "belief_other_neg_hist": multi_log["belief_other_context_hist"][1],
+        "belief_other_zero_hist": multi_log["belief_other_context_hist"][2],
+        "belief_self_press_hist": multi_log["belief_self_action_hist"][0],
+        "belief_other_press_hist": multi_log["belief_other_action_hist"][0],
+        "outcome_present_hist": multi_log["outcome_hist"][0],
+        "experiment_condition_hist": multi_log["expcondition_hist"][0]
+    }
+    
+    num_rows = len(next(iter(columns.values()))) # number of rows must be the same in each column
 
     with open(csv_file_path, mode='w', newline='') as csv_file:
-        # writing headers from the dictionary
-        fieldnames = list(multi_log.keys())
+        fieldnames = list(columns.keys())
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
-
-        # writing each element from each list as a separate row value
+        
         for i in range(num_rows):
-            row_dict = {key: multi_log[key][i] for key in fieldnames}
+            row_dict = {key: columns[key][i] for key in fieldnames}
             writer.writerow(row_dict)
 
 
