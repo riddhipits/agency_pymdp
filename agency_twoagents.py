@@ -501,7 +501,7 @@ def plot_all_choices_beliefs(log, env, savefig = 1):
     fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
     
     exp_cond_text = f'Experimental Condition: {env.expcondition}'
-    plt.text(0.0, 0.6, exp_cond_text, transform=plt.gcf().transFigure,
+    plt.text(0.5, 0.5, exp_cond_text, transform=plt.gca().transAxes,
              fontsize = 18, bbox = dict(facecolor = 'red', alpha = 0.5))
 
     axes[0].imshow(log['belief_self_context_hist'], cmap = 'gray', vmin=0, vmax=1)
