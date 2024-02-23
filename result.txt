@@ -1,0 +1,23 @@
+Log of experiments so far.
+experiment: 
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer,
+p_outcome: 0.6
+runs: 2
+average self rating pos: 0.969681
+average self rating neg: 0.000161774
+average self rating zero: 0.0301573
+variance self rating pos: 0.00207213
+variance self rating neg: 1.16851e-05
+variance self rating zero: 0.00206045
+average other rating pos: 0.228512
+average other rating neg: 0.234729
+average other rating zero: 0.536759
+variance other rating pos: 0.129301
+variance other rating neg: 0.135486
+variance other rating zero: 0.00618482
+average prob(self action): 0.64
+variance prob(self action): 0
+sample folders: experiments/2024-02-23-22-08-03/output.yaml experiments/2024-02-23-22-08-02/output.yaml
+================================================================================
