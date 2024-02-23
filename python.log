@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 155, in <module>
+    multi_log = agency_twoagents.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents.py", line 463, in run_active_inference_loop
+    log["expcondition_hist"][:,t] = my_env.expcondition_names.index(my_env.expcondition)
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
