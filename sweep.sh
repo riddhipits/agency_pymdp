@@ -39,14 +39,22 @@ do
     fi
 done
 
+average_self_rating_pos=$(echo $folders | xargs cat | grep "endofexp_self_rating_pos" |  ./average.sh)
+average_self_rating_neg=$(echo $folders | xargs cat | grep "endofexp_self_rating_neg" |  ./average.sh)
+average_self_rating_zero=$(echo $folders | xargs cat | grep "endofexp_self_rating_zero" |  ./average.sh)
+average_other_rating_pos=$(echo $folders | xargs cat | grep "endofexp_other_rating_pos" |  ./average.sh)
+average_other_rating_neg=$(echo $folders | xargs cat | grep "endofexp_other_rating_neg" |  ./average.sh)
+average_other_rating_zero=$(echo $folders | xargs cat | grep "endofexp_other_rating_zero" |  ./average.sh)
+average_p_self_action_press=$(echo $folders | xargs cat | grep "endofexp_p_self_action_press" |  ./average.sh)
 
-average_success_exp=$(echo $folders | xargs cat | grep -c "found: true")
-average_length_exp=$(echo $folders | xargs cat | grep "length" |  ./average.sh)
-variance_length_exp=$(echo $folders | xargs cat | grep "length" | ./variance.sh $average_length_exp)
-average_coverage_exp=$(echo $folders | xargs cat | grep "coverage" | ./average.sh)
-variance_coverage_exp=$(echo $folders | xargs cat | grep "coverage" | ./variance.sh $average_coverage_exp)
-average_coverage_auc=$(echo $folders | xargs cat | grep "auc_norm" |  ./average.sh)
-variance_coverage_auc=$(echo $folders | xargs cat | grep "auc_norm" | ./variance.sh $average_coverage_auc)
+variance_self_rating_pos=$(echo $folders | xargs cat | grep "endofexp_self_rating_pos" | ./variance.sh $average_self_rating_pos)
+variance_self_rating_neg=$(echo $folders | xargs cat | grep "endofexp_self_rating_neg" | ./variance.sh $average_self_rating_neg)
+variance_self_rating_zero=$(echo $folders | xargs cat | grep "endofexp_self_rating_zero" | ./variance.sh $average_self_rating_zero)
+variance_other_rating_pos=$(echo $folders | xargs cat | grep "endofexp_other_rating_pos" | ./variance.sh $average_other_rating_pos)
+variance_other_rating_neg=$(echo $folders | xargs cat | grep "endofexp_other_rating_neg" | ./variance.sh $average_other_rating_neg)
+variance_other_rating_zero=$(echo $folders | xargs cat | grep "endofexp_other_rating_zero" | ./variance.sh $average_other_rating_zero)
+variance_p_self_action_press=$(echo $folders | xargs cat | grep "endofexp_p_self_action_press" | ./variance.sh $average_p_self_action_press)
+
 overview_file="result.txt"
 if [ ! -e $overview_file ]
 then
@@ -56,13 +64,27 @@ echo "Experiment result:"
 description=$(awk '/description:/{flag=1;next}/^---$/{flag=0}flag' config.yaml | head -n 5)
 echo "experiment: $description"  | tee -a $overview_file
 echo "runs: $repeats" | tee -a $overview_file
-echo "success rate: $average_success_exp" | tee -a $overview_file
-echo "average experiment length: $average_length_exp" | tee -a $overview_file
-echo "stdv experiment length: $variance_length_exp" | tee -a $overview_file
-echo "average coverage: $average_coverage_exp" | tee -a $overview_file
-echo "stdv coverage: $variance_coverage_exp" | tee -a $overview_file
-echo "average coverage auc: $average_coverage_auc" | tee -a $overview_file
-echo "stdv coverage auc: $variance_coverage_auc" | tee -a $overview_file
-echo "sample folders: $(echo $folders | sed -e 's/\n/ /g')" >> $overview_file
-echo "================================================================================" >> $overview_file
-echo "Done parsing results."
+echo " "
+echo " SELF RATING "
+echo "average self rating pos: $average_self_rating_pos" | tee -a $overview_file
+echo "average self rating neg: $average_self_rating_neg" | tee -a $overview_file
+echo "average self rating zero: $average_self_rating_zero" | tee -a $overview_file
+echo " "
+echo "variance self rating pos: $variance_self_rating_pos" | tee -a $overview_file
+echo "variance self rating neg: $variance_self_rating_neg" | tee -a $overview_file
+echo "variance self rating zero: $variance_self_rating_zero" | tee -a $overview_file
+echo " "
+echo " "
+echo " OTHER RATING "
+echo "average other rating pos: $average_other_rating_pos" | tee -a $overview_file
+echo "average other rating neg: $average_other_rating_neg" | tee -a $overview_file
+echo "average other rating zero: $average_other_rating_zero" | tee -a $overview_file
+echo " "
+echo "variance other rating pos: $variance_other_rating_pos" | tee -a $overview_file
+echo "variance other rating neg: $variance_other_rating_neg" | tee -a $overview_file
+echo "variance other rating zero: $variance_other_rating_zero" | tee -a $overview_file
+echo " "
+echo " "
+echo " PROB(SELF ACTION) "
+echo "average prob(self action): $average_p_self_action_press" | tee -a $overview_file
+echo "variance prob(self action): $variance_p_self_action_press" | tee -a $overview_file

@@ -1,21 +1,20 @@
 ---
 description: 
-  preciseA_emotional agent, 
-  lower_t = 0, hier_t = 100, 
-  impreciseA = 1.0, 
-  obj_loc_prior = [4,6], 
-  H_threshold = 2.0, 
-lower_t: 1
-hier_t: 100
-impreciseA : 1.0
-obj_loc_priors: [4,6]
-H_threshold: 2.0
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer,
+p_outcome: 0.6
+outcomepref: 5.0
+actionpref: 0.0
+noactionpref: 1.0
+lr_pA: 0.1
+T: 25
+
+showfig: 0
+figname: "test"
+savefig: 0
+
 generative-process:
-  agent-start: 0
-  object-loc: 13
-# limiter: true
-graph:
-  type: generate_connected_clusters
-  params:
-    - 5
-    - 4
+  expcondition: s_pos_o_zer
+  p_outcome_env: 1.0
+  p_other_action_env: 0.5
