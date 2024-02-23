@@ -11,8 +11,8 @@ noactionpref: 1.0
 lr_pA: 0.1
 T: 25
 
-showfig: 1
-figname: "test"
+showfig: 0
+figname: "test2"
 savefig: 0
 
 generative-process:

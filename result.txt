@@ -87,3 +87,25 @@ average prob(self action): 0.64
 variance prob(self action): 0
 sample folders: experiments/2024-02-23-22-58-32/output.yaml
 ================================================================================
+experiment: 
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer,
+p_outcome: 0.6
+runs: 1
+average self rating pos: 0.978159
+average self rating neg: 0.000110641
+average self rating zero: 0.0217307
+variance self rating pos: 3.42489e-07
+variance self rating neg: 4.76136e-10
+variance self rating zero: 1.01244e-09
+average other rating pos: 0.330402
+average other rating neg: 0.122479
+average other rating zero: 0.547119
+variance other rating pos: 5.70424e-08
+variance other rating neg: 3.80118e-07
+variance other rating zero: 4.3716e-07
+average prob(self action): 0.6
+variance prob(self action): 0
+sample folders: experiments/2024-02-23-23-01-05/output.yaml
+================================================================================
