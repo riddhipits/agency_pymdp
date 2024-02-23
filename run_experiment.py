@@ -92,7 +92,7 @@ def write_csv_log(multi_log):
     
     folder_name = "csvlog"
 
-    os.makedirs("folder_name", exist_ok=True) # check if the folder exists
+    os.makedirs(folder_name, exist_ok=True) # check if the folder exists
 
     current_time = datetime.datetime.now()
     current_time_str = current_time.strftime("%Y-%m-%d-%H-%M-%S")
