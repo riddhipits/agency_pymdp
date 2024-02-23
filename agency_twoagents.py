@@ -492,7 +492,7 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
 
 # functions to create plots
 
-def plot_all_choices_beliefs(log, savefig = 1):
+def plot_all_choices_beliefs(log, env, savefig = 1):
     
     pad_val=1.0
 

@@ -186,6 +186,6 @@ if __name__ == "__main__":
          })
     
     if config['showfig'] == 1 and config['savefig'] == 1:
-        agency_twoagents.plot_all_choices_beliefs(multi_log, savefig=1)
+        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=1)
     elif config['showfig'] == 1 and config['savefig'] == 0:
-        agency_twoagents.plot_all_choices_beliefs(multi_log, savefig=0)
+        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=0)
