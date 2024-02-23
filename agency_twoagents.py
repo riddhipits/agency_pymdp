@@ -500,7 +500,8 @@ def plot_all_choices_beliefs(log, env, savefig = 1):
 
     fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
     
-    plt.text(-5, 60, f'Experimental Condition (or Context): {env.expcondition}')
+    plt.text(-5, 60, f'Experimental Condition (or Context): {env.expcondition}', 
+             fontsize = 22, bbox = dict(facecolor = 'red', alpha = 0.5))
 
     axes[0].imshow(log['belief_self_context_hist'], cmap = 'gray', vmin=0, vmax=1)
     axes[0].set_xlabel('Timesteps')
