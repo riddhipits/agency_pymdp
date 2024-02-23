@@ -12,6 +12,7 @@ lr_pA: 0.1
 T: 25
 
 showfig: 1
+figname: "test"
 savefig: 1
 
 generative-process:
