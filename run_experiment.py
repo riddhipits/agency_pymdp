@@ -96,6 +96,7 @@ def write_csv_log(multi_log):
     }
     
     num_rows = len(next(iter(columns.values()))) # number of rows must be the same in each column
+    columns['timesteps'] = list(range(1, num_rows + 1))  # creating timestep column
 
     with open(csv_file_path, mode='w', newline='') as csv_file:
         fieldnames = list(columns.keys())
