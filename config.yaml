@@ -11,8 +11,8 @@ noactionpref: 1.0
 lr_pA: 0.1
 T: 25
 
-showfig: 0
-savefig: 0
+showfig: 1
+savefig: 1
 
 generative-process:
   expcondition: s_pos_o_zer

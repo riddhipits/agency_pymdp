@@ -489,88 +489,44 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
             
     return log
 
-# p_outcome_env = 1.0
-# p_other_action_env = 0.5
-# expcondition = None
-
-# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
-
-# T = 25
-
-# A,A_factor_list,pA = create_A(p_outcome = 0.6)
-# B = create_B()
-# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
-# D = create_D()
-# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
-#                  pA=pA, control_fac_idx=controllable_indices,
-#                  modalities_to_learn=learnable_modalities,
-#                  lr_pA=0.1, use_param_info_gain=True)
-
-
-# choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
 
 # functions to create plots
-def plot_some_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, pad_val=5.0):
-    print(env.expcondition)
-    
-    T = choice_self_hist.shape[1]
-    fig, axes = plt.subplots(nrows = 3, ncols = 1, figsize = (15,13))
-    
-    axes[0].imshow(choice_self_hist[:,:-1], cmap = 'gray') 
-    axes[0].set_xlabel('Timesteps')
-    axes[0].set_yticks(ticks = range(num_states[2]))
-    axes[0].set_yticklabels(labels = choice_self_action_names)
-    axes[0].set_title('Actions produced by the self over time')
-    
-    axes[1].imshow(belief_self_context_hist, cmap = 'gray')
-    axes[1].set_xlabel('Timesteps')
-    axes[1].set_yticks(ticks = range(num_states[0]))
-    axes[1].set_yticklabels(labels = self_agency_names)
-    axes[1].set_title('Beliefs about control the self has over time')
-    
-    axes[2].imshow(belief_other_context_hist, cmap = 'gray')
-    axes[2].set_xlabel('Timesteps')
-    axes[2].set_yticks(ticks = range(num_states[1]))
-    axes[2].set_yticklabels(labels = other_agency_names)
-    axes[2].set_title('Beliefs about control the other has over time')
-    
-    fig.tight_layout(pad=pad_val)
-    plt.show()
 
-def plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, belief_other_action_hist, outcome_hist, pad_val=1.0, savefig = 1):
+def plot_all_choices_beliefs(log, savefig = 1):
     
+    pad_val=1.0
+
     print(f'Experimental Condition (or Context): {env.expcondition}')
     
-    T = choice_self_hist.shape[1]
-    # T=25
+    T = log['choice_self_hist'].shape[1]
 
     fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
     
-    axes[0].imshow(belief_self_context_hist, cmap = 'gray', vmin=0, vmax=1)
+    axes[0].imshow(log['belief_self_context_hist'], cmap = 'gray', vmin=0, vmax=1)
     axes[0].set_xlabel('Timesteps')
     axes[0].set_yticks(ticks = range(num_states[0]))
     axes[0].set_yticklabels(labels = self_agency_names)
     axes[0].set_title('Beliefs about control the self has over time')
 
-    axes[1].imshow(belief_other_context_hist, cmap = 'gray', vmin=0, vmax=1)
+    axes[1].imshow(log['belief_other_context_hist'], cmap = 'gray', vmin=0, vmax=1)
     axes[1].set_xlabel('Timesteps')
     axes[1].set_yticks(ticks = range(num_states[1]))
     axes[1].set_yticklabels(labels = other_agency_names)
     axes[1].set_title('Beliefs about control the other has over time')
 
-    axes[2].imshow(choice_self_hist[:,:-1], cmap = 'gray', vmin=0, vmax=1) 
+    axes[2].imshow(log['choice_self_hist'][:,:-1], cmap = 'gray', vmin=0, vmax=1) 
     axes[2].set_xlabel('Timesteps')
     axes[2].set_yticks(ticks = range(num_states[2]))
     axes[2].set_yticklabels(labels = self_action_names)
     axes[2].set_title('Actions produced by the self over time')
     
-    axes[3].imshow(belief_other_action_hist[:,:-1], cmap = 'gray', vmin=0, vmax=1) 
+    axes[3].imshow(log['belief_other_action_hist'][:,:-1], cmap = 'gray', vmin=0, vmax=1) 
     axes[3].set_xlabel('Timesteps')
     axes[3].set_yticks(ticks = range(num_states[3]))
     axes[3].set_yticklabels(labels = other_action_names)
     axes[3].set_title('Beliefs about actions produced by the other over time')
 
-    axes[4].imshow(outcome_hist[:,:-1], cmap = 'gray', vmin=0, vmax=1) 
+    axes[4].imshow(log['outcome_hist'][:,:-1], cmap = 'gray', vmin=0, vmax=1) 
     axes[4].set_xlabel('Timesteps')
     axes[4].set_yticks(ticks = range(num_obs[0]))
     axes[4].set_yticklabels(labels = obs_outcome_names)
@@ -604,3 +560,53 @@ def evaluate_p_self_action(log):
     press = log["choice_self_hist"][0,:]
     prob_self_action = (sum(press))/(len(log["choice_self_hist"][0]))
     return prob_self_action
+
+##################### STORAGE #####################
+
+# def plot_some_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, pad_val=5.0):
+#     print(env.expcondition)
+    
+#     T = choice_self_hist.shape[1]
+#     fig, axes = plt.subplots(nrows = 3, ncols = 1, figsize = (15,13))
+    
+#     axes[0].imshow(choice_self_hist[:,:-1], cmap = 'gray') 
+#     axes[0].set_xlabel('Timesteps')
+#     axes[0].set_yticks(ticks = range(num_states[2]))
+#     axes[0].set_yticklabels(labels = choice_self_action_names)
+#     axes[0].set_title('Actions produced by the self over time')
+    
+#     axes[1].imshow(belief_self_context_hist, cmap = 'gray')
+#     axes[1].set_xlabel('Timesteps')
+#     axes[1].set_yticks(ticks = range(num_states[0]))
+#     axes[1].set_yticklabels(labels = self_agency_names)
+#     axes[1].set_title('Beliefs about control the self has over time')
+    
+#     axes[2].imshow(belief_other_context_hist, cmap = 'gray')
+#     axes[2].set_xlabel('Timesteps')
+#     axes[2].set_yticks(ticks = range(num_states[1]))
+#     axes[2].set_yticklabels(labels = other_agency_names)
+#     axes[2].set_title('Beliefs about control the other has over time')
+    
+#     fig.tight_layout(pad=pad_val)
+#     plt.show()
+
+
+# p_outcome_env = 1.0
+# p_other_action_env = 0.5
+# expcondition = None
+
+# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
+
+# T = 25
+
+# A,A_factor_list,pA = create_A(p_outcome = 0.6)
+# B = create_B()
+# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
+# D = create_D()
+# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+#                  pA=pA, control_fac_idx=controllable_indices,
+#                  modalities_to_learn=learnable_modalities,
+#                  lr_pA=0.1, use_param_info_gain=True)
+
+
+# choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
