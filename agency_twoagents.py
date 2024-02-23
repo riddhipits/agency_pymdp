@@ -495,13 +495,13 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
 def plot_all_choices_beliefs(log, env, savefig = 1):
     
     pad_val=1.0
-
-    print(f'Experimental Condition (or Context): {env.expcondition}')
     
     T = log['choice_self_hist'].shape[1]
 
     fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
     
+    print(f'Experimental Condition (or Context): {env.expcondition}')
+
     axes[0].imshow(log['belief_self_context_hist'], cmap = 'gray', vmin=0, vmax=1)
     axes[0].set_xlabel('Timesteps')
     axes[0].set_yticks(ticks = range(num_states[0]))
