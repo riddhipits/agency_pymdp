@@ -92,7 +92,7 @@ def write_csv_log(multi_log):
         "belief_self_press_hist": multi_log["belief_self_action_hist"][0],
         "belief_other_press_hist": multi_log["belief_other_action_hist"][0],
         "outcome_present_hist": multi_log["outcome_hist"][0],
-        "experiment_condition_hist": multi_log["expcondition_hist"][0]
+        "experiment_condition_hist": multi_log["expcondition_hist"]
     }
     
     num_rows = len(next(iter(columns.values()))) # number of rows must be the same in each column
