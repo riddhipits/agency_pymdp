@@ -492,7 +492,7 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
 
 # functions to create plots
 
-def plot_all_choices_beliefs(log, env, savefig = 1):
+def plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = None):
     
     pad_val=1.0
     
@@ -537,9 +537,7 @@ def plot_all_choices_beliefs(log, env, savefig = 1):
     fig.tight_layout(pad=pad_val)
 
     if savefig == 1: 
-        user_enters_file_name = input("Please enter the experiment's name: ")
-        file_name = "agency_exp_" + user_enters_file_name + ".png"
-        plt.savefig(file_name)
+        plt.savefig(fig_file_name)
         plt.show()
     else:
         plt.show()
