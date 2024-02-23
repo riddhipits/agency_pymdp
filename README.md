@@ -4,7 +4,7 @@ Riddhi J. Pitliya Feb 2024
 ### Description:
 An active inference simulation of the two-agent (participant + simulated participant) agency task. The agency task is the one implemented with the Italy team. Button Pressing. Shapes. PS_ZO, NS_ZO, ZS_ZO, ZS_PO, ZS_NO.
 
-# To run experiments from scratch: 
+### To run experiments from scratch: 
 1. Empty the "experiments" folder
 2. Optionally delete the "results.txt" file. Remember to save the previous version for record-keeping if you choose to delete the file. If you choose not to delete the file, the results from your experiments will be appended.
 3. Alter the parameters in config.yaml 

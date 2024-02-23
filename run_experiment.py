@@ -1,4 +1,5 @@
 from git import Repo
+
 import agency_twoagents
 import datetime
 import functools
@@ -107,7 +108,6 @@ def write_csv_log(multi_log):
             row_dict = {key: columns[key][i] for key in fieldnames}
             writer.writerow(row_dict)
 
-
 def save_multilog(datadir, log):
     file_name = pathlib.Path(datadir) / "log.p"
     with open(file_name, "wb") as f:
@@ -143,6 +143,7 @@ if __name__ == "__main__":
     except Exception:
         pass
     config = read_config(file_name)
+
     env, my_agent = setup_generative_model_and_process(
         config["generative-process"], 
         config["p_outcome"], config["outcomepref"], config["actionpref"], config["noactionpref"], config["lr_pA"]
@@ -157,6 +158,7 @@ if __name__ == "__main__":
         exit(0)
     log_path = pathlib.Path(experiment_dir) / "stdout.log"
     save_multilog(experiment_dir, multi_log)
+
     write_csv_log(multi_log)
     length = agency_twoagents.evaluate_length(multi_log)
     endofexp_self_rating = agency_twoagents.evaluate_endofexp_self_rating(multi_log)
@@ -190,5 +192,4 @@ if __name__ == "__main__":
                 "endofexp_p_self_action_press": float(endofexp_p_self_action_press)
             }
          })
-    
-    
+

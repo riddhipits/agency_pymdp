@@ -19,7 +19,6 @@ rm python.log 2> /dev/null
 echo "Starting $repeats runs of $config_name"
 for i in $(seq $repeats)
 do
-    echo "Starting experiment $i"
     sleep $i && python run_experiment.py $config_name experiments 1>/dev/null 2>>python.log &
 done
 echo "Spawned $repeats experiments waiting for results."
@@ -39,7 +38,6 @@ do
         exit
     fi
 done
-
 
 average_self_rating_pos=$(echo $folders | xargs cat | grep "endofexp_self_rating_pos" |  ./average.sh)
 average_self_rating_neg=$(echo $folders | xargs cat | grep "endofexp_self_rating_neg" |  ./average.sh)
@@ -90,7 +88,3 @@ echo " "
 echo " PROB(SELF ACTION) "
 echo "average prob(self action): $average_p_self_action_press" | tee -a $overview_file
 echo "variance prob(self action): $variance_p_self_action_press" | tee -a $overview_file
-
-echo "sample folders: $(echo $folders | sed -e 's/\n/ /g')" >> $overview_file
-echo "================================================================================" >> $overview_file
-echo "Done parsing results."
