@@ -60,35 +60,6 @@ def setup_graph(graph_dict):
 
 def setup_generative_model_and_process(generative_process_dict, 
                                        p_outcome, outcomepref, actionpref, noactionpref, lr_pA):
-    # meta["self_agency_names"] = ['self_positivecontrol', 'self_negativecontrol', 'self_zerocontrol']
-    # meta["other_agency_names"] = ['other_positivecontrol', 'other_negativecontrol', 'other_zerocontrol']
-    # meta["self_action_names"] = ['self_buttonpress', 'self_buttonnotpress']
-    # meta["other_action_names"] = ['other_buttonpress', 'other_buttonnotpress']
-
-    # """ Defining number of state factors and states """
-    # num_states = [len(meta["self_agency_names"]), len(meta["other_agency_names"]), 
-    #               len(meta["self_action_names"]), len(meta["other_action_names"])]
-    # num_factors = len(num_states)
-
-    # """ Defining control state factors """
-    # meta["choice_self_agency_names"] = ['no_changes']
-    # meta["choice_other_agency_names"] = ['no_changes']
-    # meta["choice_self_action_names"] = ['self_pressbutton', 'self_notpressbutton']
-    # meta["choice_other_action_names"] = ['equal_distribution']
-
-    # """ Defining number of control states """
-    # num_controls = [len(meta["choice_self_agency_names"]), len(meta["choice_other_agency_names"]), 
-    #                 len(meta["choice_self_action_names"]), len(meta["choice_other_action_names"])]
-
-    # """ Defining observational modalities """
-    # meta["obs_outcome_names"] = ['outcome_present', 'outcome_absent']
-    # meta["obs_choice_self_names"] = ['self_buttonpress', 'self_buttonnotpress']
-    # meta["obs_choice_other_names"] = ['other_buttonpress', 'other_buttonnotpress']
-
-    # """ Defining number of observational modalities and observations """
-    # num_obs = [len(meta["obs_outcome_names"]), len(meta["obs_choice_self_names"]), 
-    #            len(meta["obs_choice_other_names"])]
-    # num_modalities = len(num_obs)
     
     """ Creating the focal agent (generative model) """
     A,A_factor_list,pA = agency_twoagents.create_A(p_outcome = p_outcome)
@@ -109,18 +80,13 @@ def setup_generative_model_and_process(generative_process_dict,
 
     return env, my_agent
 
-# def draw_env(graph, datadir):
-#     fig = plt.figure()
-#     networkx.draw(graph, with_labels=True, ax=fig.add_subplot())
-#     matplotlib.use("Agg")
-#     fig.savefig(pathlib.Path(datadir) / "env.png")
-#     plt.close(fig)
-
 
 def write_output(datadir, output_dict):
     file_name = pathlib.Path(datadir) / "output.yaml"
     with open(file_name, "w") as f:
         return yaml.dump(output_dict, f, default_flow_style=False)
+
+# def write_csv_log(csv_dir, log):
 
 
 def save_multilog(datadir, log):
