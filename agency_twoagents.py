@@ -460,7 +460,7 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
         obs_label = my_env.step(choice_action)
         obs = [obs_outcome_names.index(obs_label[0]), obs_choice_self_names.index(obs_label[1]), obs_choice_other_names.index(obs_label[2])]
         
-        log["expcondition_hist"][t] = my_env.expcondition_names.index(my_env.expcondition)
+        log["expcondition_hist"][:,t] = my_env.expcondition_names.index(my_env.expcondition)
         
         qs = my_agent.infer_states(obs)
         log["belief_self_context_hist"][:,t] = qs[0]

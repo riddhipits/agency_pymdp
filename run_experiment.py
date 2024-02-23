@@ -89,29 +89,26 @@ def write_output(datadir, output_dict):
         return yaml.dump(output_dict, f, default_flow_style=False)
 
 def write_csv_log(multi_log):
-    
     folder_name = "csvlog"
+    os.makedirs(folder_name, exist_ok=True)  # checking the folder exists
 
-    os.makedirs(folder_name, exist_ok=True) # check if the folder exists
+    current_time_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    file_name = f"{current_time_str}.csv" # file name is created from the date and time stamp
+    csv_file_path = os.path.join(folder_name, file_name)  # full path for the CSV file
 
-    current_time = datetime.datetime.now()
-    current_time_str = current_time.strftime("%Y-%m-%d-%H-%M-%S")
-    file_name = current_time_str # file name is the date and time stamp
-    file_name += '.csv'
-    
-    csv_file_path = os.path.join(folder_name, file_name) # defining the full path for the CSV file
-    
-    headers = list(multi_log.keys()) # column names are set as the headers from the dictionary keys
-    
-    num_rows = len(next(iter(multi_log.values()))) # setting the number of rows according to the dictionary
-    
-    # writing log as csv files
+    num_rows = len(next(iter(multi_log.values()))) #  all lists in the multi_log must be of the same length
+
     with open(csv_file_path, mode='w', newline='') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=headers)
+        # writing headers from the dictionary
+        fieldnames = list(multi_log.keys())
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
+
+        # writing each element from each list as a separate row value
         for i in range(num_rows):
-            row_dict = {key: multi_log[key][i] for key in headers}
+            row_dict = {key: multi_log[key][i] for key in fieldnames}
             writer.writerow(row_dict)
+
 
 def save_multilog(datadir, log):
     file_name = pathlib.Path(datadir) / "log.p"
