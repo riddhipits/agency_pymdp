@@ -13,7 +13,7 @@ T: 25
 
 showfig: 1
 figname: "test"
-savefig: 1
+savefig: 0
 
 generative-process:
   expcondition: s_pos_o_zer

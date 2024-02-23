@@ -172,7 +172,7 @@ if __name__ == "__main__":
     endofexp_p_self_action_press = endofexp_p_self_action
 
     if config['showfig'] == 1 and config['savefig'] == 1:
-        fig_file_name = config["figname"]
+        fig_file_name = "agency_exp_" + config["figname"] + ".png"
         agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=1, fig_file_name = fig_file_name)
     elif config['showfig'] == 1 and config['savefig'] == 0:
         agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=0)

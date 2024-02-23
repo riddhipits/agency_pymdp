@@ -537,6 +537,8 @@ def plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = None):
     fig.tight_layout(pad=pad_val)
 
     if savefig == 1: 
+        # user_enters_file_name = input("Please enter the experiment's name: ")
+        # fig_file_name = "agency_exp_" + user_enters_file_name + ".png"
         plt.savefig(fig_file_name)
         plt.show()
     else:
