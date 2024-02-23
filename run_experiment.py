@@ -11,6 +11,7 @@ import pathlib
 import pickle
 import shutil
 import sys
+import csv
 import pymdp
 import yaml
 from pymdp import utils 
@@ -86,8 +87,29 @@ def write_output(datadir, output_dict):
     with open(file_name, "w") as f:
         return yaml.dump(output_dict, f, default_flow_style=False)
 
-# def write_csv_log(csv_dir, log):
+def write_csv_log(multi_log):
+    
+    folder_name = "csvlog"
 
+    os.makedirs("folder_name", exist_ok=True) # check if the folder exists
+
+    current_time = datetime.datetime.now()
+    current_time_str = current_time.strftime("%Y-%m-%d-%H-%M-%S")
+    file_name = current_time_str # file name is the date and time stamp
+    
+    csv_file_path = os.path.join(folder_name, file_name) # defining the full path for the CSV file
+    
+    headers = list(multi_log.keys()) # column names are set as the headers from the dictionary keys
+    
+    num_rows = len(next(iter(multi_log.values()))) # setting the number of rows according to the dictionary
+    
+    # writing log as csv files
+    with open(csv_file_path, mode='w', newline='') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=headers)
+        writer.writeheader()
+        for i in range(num_rows):
+            row_dict = {key: multi_log[key][i] for key in headers}
+            writer.writerow(row_dict)
 
 def save_multilog(datadir, log):
     file_name = pathlib.Path(datadir) / "log.p"
@@ -138,6 +160,7 @@ if __name__ == "__main__":
         exit(0)
     log_path = pathlib.Path(experiment_dir) / "stdout.log"
     save_multilog(experiment_dir, multi_log)
+    write_csv_log(multi_log)
     length = agency_twoagents.evaluate_length(multi_log)
     endofexp_self_rating = agency_twoagents.evaluate_endofexp_self_rating(multi_log)
     endofexp_other_rating = agency_twoagents.evaluate_endofexp_other_rating(multi_log)
@@ -164,3 +187,4 @@ if __name__ == "__main__":
                 "endofexp_p_self_action_press": float(endofexp_p_self_action_press)
             }
          })
+    
