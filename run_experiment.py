@@ -171,6 +171,11 @@ if __name__ == "__main__":
     endofexp_other_rating_zero = endofexp_other_rating[2]
     endofexp_p_self_action_press = endofexp_p_self_action
 
+    if config['showfig'] == 1 and config['savefig'] == 1:
+        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=1)
+    elif config['showfig'] == 1 and config['savefig'] == 0:
+        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=0)
+    
     write_output(
         experiment_dir,
         {"results":
@@ -185,7 +190,4 @@ if __name__ == "__main__":
             }
          })
     
-    if config['showfig'] == 1 and config['savefig'] == 1:
-        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=1)
-    elif config['showfig'] == 1 and config['savefig'] == 0:
-        agency_twoagents.plot_all_choices_beliefs(multi_log, env, savefig=0)
+    
