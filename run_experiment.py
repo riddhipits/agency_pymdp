@@ -98,6 +98,7 @@ def write_csv_log(multi_log):
     
     num_rows = len(next(iter(columns.values()))) # number of rows must be the same in each column
     columns['timesteps'] = list(range(1, num_rows + 1))  # creating timestep column
+    columns["PID"] = [current_time_str] * num_rows
 
     with open(csv_file_path, mode='w', newline='') as csv_file:
         fieldnames = list(columns.keys())
@@ -106,7 +107,6 @@ def write_csv_log(multi_log):
         
         for i in range(num_rows):
             row_dict = {key: columns[key][i] for key in fieldnames}
-            row_dict["PID"] = current_time_str
             writer.writerow(row_dict)
 
 def save_multilog(datadir, log):
