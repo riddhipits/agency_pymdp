@@ -88,3 +88,6 @@ echo " "
 echo " PROB(SELF ACTION) "
 echo "average prob(self action): $average_p_self_action_press" | tee -a $overview_file
 echo "variance prob(self action): $variance_p_self_action_press" | tee -a $overview_file
+echo "sample folders: $(echo $folders | sed -e 's/\n/ /g')" >> $overview_file
+echo "================================================================================" >> $overview_file
+echo "Done parsing results."
