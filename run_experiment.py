@@ -78,6 +78,7 @@ def write_csv_log(multi_log):
     os.makedirs(folder_name, exist_ok=True)  # checking the folder exists
 
     current_time_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    PID_time_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     file_name = f"{current_time_str}.csv" # file name is created from the date and time stamp
     csv_file_path = os.path.join(folder_name, file_name)  # full path for the CSV file
 
@@ -98,7 +99,7 @@ def write_csv_log(multi_log):
     
     num_rows = len(next(iter(columns.values()))) # number of rows must be the same in each column
     columns['timesteps'] = list(range(1, num_rows + 1))  # creating timestep column
-    columns["PID"] = [current_time_str] * num_rows
+    columns["PID"] = [PID_time_str] * num_rows
 
     with open(csv_file_path, mode='w', newline='') as csv_file:
         fieldnames = list(columns.keys())
