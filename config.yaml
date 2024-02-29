@@ -3,7 +3,7 @@ description:
   T = 25,  p_outcome = 0.5,  outcomepref = 5.0,
   actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
   expcondition = s_pos_o_zer,
-p_outcome: 0.5
+p_outcome: 0.51
 outcomepref: 5.0
 actionpref: 0.0
 noactionpref: 1.0
