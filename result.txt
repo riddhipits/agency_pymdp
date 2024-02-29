@@ -1,0 +1,20 @@
+experiment:   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer,
+p_outcome: 0.6
+outcomepref: 5.0
+runs: 40
+average self rating pos: 0.965385
+average self rating neg: 0.000225607
+average self rating zero: 0.0343895
+variance self rating pos: 0.00797933
+variance self rating neg: 0.00015359
+variance self rating zero: 0.0078425
+average other rating pos: 0.208722
+average other rating neg: 0.266945
+average other rating zero: 0.524333
+variance other rating pos: 0.137653
+variance other rating neg: 0.159896
+variance other rating zero: 0.0500003
+average prob(self action): 0.629
+variance prob(self action): 0.0447102
