@@ -1,18 +1,18 @@
 ---
 description: 
-  T = 25,  p_outcome = 0.4,  outcomepref = 5.0,
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
   actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
   expcondition = s_pos_o_zer,
-p_outcome: 0.4
+p_outcome: 0.6
 outcomepref: 5.0
 actionpref: 0.0
 noactionpref: 1.0
 lr_pA: 0.1
 T: 25
 
-showfig: 1
-figname: "s_pos_o_zer_testing opposite structure"
-savefig: 1
+showfig: 0
+figname: "s_pos_o_zer"
+savefig: 0
 
 generative-process:
   expcondition: s_pos_o_zer
