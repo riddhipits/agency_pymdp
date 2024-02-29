@@ -151,3 +151,23 @@ variance other rating neg: 4.2159e-08
 variance other rating zero: 4.87949e-07
 average prob(self action): 0.68
 variance prob(self action): 0
+experiment:   T = 25,  p_outcome = 0.5,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer,
+p_outcome: 0.51
+outcomepref: 5.0
+runs: 1
+average self rating pos: 0.465674
+average self rating neg: 0.214254
+average self rating zero: 0.320072
+variance self rating pos: 4.79326e-07
+variance self rating neg: 8.9219e-08
+variance self rating zero: 3.90107e-07
+average other rating pos: 0.360437
+average other rating neg: 0.303799
+average other rating zero: 0.335764
+variance other rating pos: 2.18665e-07
+variance other rating neg: 2.54489e-07
+variance other rating zero: 3.58242e-08
+average prob(self action): 0.64
+variance prob(self action): 0
