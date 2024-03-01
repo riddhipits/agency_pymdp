@@ -162,11 +162,12 @@ if __name__ == "__main__":
     log_path = pathlib.Path(experiment_dir) / "stdout.log"
     save_multilog(experiment_dir, multi_log)
 
-    write_csv_log(multi_log)
     length = agency_twoagents.evaluate_length(multi_log)
     endofexp_self_rating = agency_twoagents.evaluate_endofexp_self_rating(multi_log)
     endofexp_other_rating = agency_twoagents.evaluate_endofexp_other_rating(multi_log)
     endofexp_p_self_action = agency_twoagents.evaluate_p_self_action(multi_log)
+
+    write_csv_log(multi_log)
 
     endofexp_self_rating_pos = endofexp_self_rating[0]
     endofexp_self_rating_neg = endofexp_self_rating[1]
