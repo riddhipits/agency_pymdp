@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 155, in <module>
+    experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 41, in setup_log_dir
+    git_repo.index.add(changed_files)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 809, in add
+    entries_added.extend(self._entries_for_paths(paths, path_rewriter, fprogress, entries))
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/util.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/util.py", line 119, in set_git_working_dir
+    return func(self, *args, **kwargs)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 688, in _entries_for_paths
+    entries_added.append(self._store_path(filepath, fprogress))
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 633, in _store_path
+    st = os.lstat(filepath)  # handles non-symlinks as well
+FileNotFoundError: [Errno 2] No such file or directory: 'csvlog/2024-03-01-12-08-02.csv'
