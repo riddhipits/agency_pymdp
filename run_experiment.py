@@ -78,13 +78,14 @@ def write_csv_log(multi_log):
     os.makedirs(folder_name, exist_ok=True)  # checking the folder exists
 
     current_time_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    PID_time_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    PID_time_str = datetime.datetime.now().strftime("%m%d%H%M%S")
     file_name = f"{current_time_str}.csv" # file name is created from the date and time stamp
     csv_file_path = os.path.join(folder_name, file_name)  # full path for the CSV file
 
     # wrangling the dictionary to extract the wanted columns
     columns = {
         "self_press_hist": multi_log["choice_self_hist"][0],
+        "prob_self_action": endofexp_p_self_action_press,
         "belief_self_pos_hist": multi_log["belief_self_context_hist"][0],
         "belief_self_neg_hist": multi_log["belief_self_context_hist"][1], 
         "belief_self_zero_hist": multi_log["belief_self_context_hist"][2], 
