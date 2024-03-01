@@ -1,0 +1,8 @@
+results:
+  endofexp_other_rating_neg: 0.9175806121719365
+  endofexp_other_rating_pos: 0.0006239860667847833
+  endofexp_other_rating_zero: 0.0817954017612786
+  endofexp_p_self_action_press: 0.92
+  endofexp_self_rating_neg: 0.005114215464639591
+  endofexp_self_rating_pos: 0.7641322642354056
+  endofexp_self_rating_zero: 0.2307535202999547

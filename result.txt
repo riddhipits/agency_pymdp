@@ -130,3 +130,25 @@ average prob(self action): 0.342
 variance prob(self action): 0.3875
 sample folders: experiments/2024-03-01-12-15-03/output.yaml experiments/2024-03-01-12-15-02/output.yaml experiments/2024-03-01-12-15-01/output.yaml experiments/2024-03-01-12-15-00/output.yaml experiments/2024-03-01-12-14-59/output.yaml experiments/2024-03-01-12-14-58/output.yaml experiments/2024-03-01-12-14-57/output.yaml experiments/2024-03-01-12-14-56/output.yaml experiments/2024-03-01-12-14-55/output.yaml experiments/2024-03-01-12-14-54/output.yaml experiments/2024-03-01-12-14-53/output.yaml experiments/2024-03-01-12-14-52/output.yaml experiments/2024-03-01-12-14-51/output.yaml experiments/2024-03-01-12-14-50/output.yaml experiments/2024-03-01-12-14-49/output.yaml experiments/2024-03-01-12-14-48/output.yaml experiments/2024-03-01-12-14-47/output.yaml experiments/2024-03-01-12-14-46/output.yaml experiments/2024-03-01-12-14-45/output.yaml experiments/2024-03-01-12-14-44/output.yaml experiments/2024-03-01-12-14-43/output.yaml experiments/2024-03-01-12-14-42/output.yaml experiments/2024-03-01-12-14-41/output.yaml experiments/2024-03-01-12-14-40/output.yaml experiments/2024-03-01-12-14-39/output.yaml experiments/2024-03-01-12-14-38/output.yaml experiments/2024-03-01-12-14-37/output.yaml experiments/2024-03-01-12-14-36/output.yaml experiments/2024-03-01-12-14-35/output.yaml experiments/2024-03-01-12-14-34/output.yaml experiments/2024-03-01-12-14-33/output.yaml experiments/2024-03-01-12-14-32/output.yaml experiments/2024-03-01-12-14-31/output.yaml experiments/2024-03-01-12-14-30/output.yaml experiments/2024-03-01-12-14-29/output.yaml experiments/2024-03-01-12-14-28/output.yaml experiments/2024-03-01-12-14-27/output.yaml experiments/2024-03-01-12-14-26/output.yaml experiments/2024-03-01-12-14-25/output.yaml experiments/2024-03-01-12-14-24/output.yaml
 ================================================================================
+experiment:   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_zer,
+p_outcome: 0.6
+outcomepref: 5.0
+runs: 5
+average self rating pos: 0.393855
+average self rating neg: 0.246428
+average self rating zero: 0.359717
+variance self rating pos: 0.103263
+variance self rating neg: 0.0988632
+variance self rating zero: 0.0363973
+average other rating pos: 0.37102
+average other rating neg: 0.275709
+average other rating zero: 0.353271
+variance other rating pos: 0.0556042
+variance other rating neg: 0.069113
+variance other rating zero: 0.027017
+average prob(self action): 0.488
+variance prob(self action): 0.0466476
+sample folders: experiments/2024-03-01-12-16-33/output.yaml experiments/2024-03-01-12-16-32/output.yaml experiments/2024-03-01-12-16-31/output.yaml experiments/2024-03-01-12-16-30/output.yaml experiments/2024-03-01-12-16-29/output.yaml
+================================================================================
