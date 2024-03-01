@@ -167,6 +167,7 @@ if __name__ == "__main__":
     endofexp_other_rating = agency_twoagents.evaluate_endofexp_other_rating(multi_log)
     endofexp_p_self_action = agency_twoagents.evaluate_p_self_action(multi_log)
     multi_log["endofexp_p_self_action"] = [endofexp_p_self_action] * len(multi_log["choice_self_hist"][0])
+    
     write_csv_log(multi_log)
 
     endofexp_self_rating_pos = endofexp_self_rating[0]
