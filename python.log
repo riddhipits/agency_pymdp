@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.9/site-packages/gitdb/util.py", line 323, in open
+    fd = os.open(self._lockfilepath(), lockmode, int("600", 8))
+FileExistsError: [Errno 17] File exists: '/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/.git/index.lock'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 155, in <module>
+    experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 41, in setup_log_dir
+    git_repo.index.add(changed_files)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 872, in add
+    self.write(ignore_extension_data=not write_extension_data)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 225, in write
+    stream = lfd.open(write=True, stream=True)
+  File "/opt/anaconda3/lib/python3.9/site-packages/gitdb/util.py", line 330, in open
+    raise OSError("Lock at %r could not be obtained" % self._lockfilepath()) from e
+OSError: Lock at '/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/.git/index.lock' could not be obtained
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 157, in <module>
+    multi_log = agency_twoagents.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents.py", line 460, in run_active_inference_loop
+    obs_label = my_env.step(choice_action)
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents.py", line 423, in step
+    obs = [observed_outcome, observed_choice_self, observed_choice_other]
+UnboundLocalError: local variable 'observed_outcome' referenced before assignment
