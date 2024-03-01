@@ -85,7 +85,7 @@ def write_csv_log(multi_log):
     # wrangling the dictionary to extract the wanted columns
     columns = {
         "self_press_hist": multi_log["choice_self_hist"][0],
-        "prob_self_action": endofexp_p_self_action_press,
+        "prob_self_action": multi_log["endofexp_p_self_action_press"],
         "belief_self_pos_hist": multi_log["belief_self_context_hist"][0],
         "belief_self_neg_hist": multi_log["belief_self_context_hist"][1], 
         "belief_self_zero_hist": multi_log["belief_self_context_hist"][2], 
