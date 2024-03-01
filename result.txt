@@ -218,3 +218,25 @@ average prob(self action): 0.468
 variance prob(self action): 0.0815843
 sample folders: experiments/2024-03-01-15-37-36/output.yaml experiments/2024-03-01-15-37-35/output.yaml experiments/2024-03-01-15-37-34/output.yaml experiments/2024-03-01-15-37-33/output.yaml experiments/2024-03-01-15-37-32/output.yaml experiments/2024-03-01-15-37-31/output.yaml experiments/2024-03-01-15-37-30/output.yaml experiments/2024-03-01-15-37-29/output.yaml experiments/2024-03-01-15-37-28/output.yaml experiments/2024-03-01-15-37-27/output.yaml experiments/2024-03-01-15-37-26/output.yaml experiments/2024-03-01-15-37-25/output.yaml experiments/2024-03-01-15-37-24/output.yaml experiments/2024-03-01-15-37-23/output.yaml experiments/2024-03-01-15-37-22/output.yaml experiments/2024-03-01-15-37-21/output.yaml experiments/2024-03-01-15-37-20/output.yaml experiments/2024-03-01-15-37-19/output.yaml experiments/2024-03-01-15-37-18/output.yaml experiments/2024-03-01-15-37-17/output.yaml experiments/2024-03-01-15-37-16/output.yaml experiments/2024-03-01-15-37-15/output.yaml experiments/2024-03-01-15-37-14/output.yaml experiments/2024-03-01-15-37-13/output.yaml experiments/2024-03-01-15-37-12/output.yaml experiments/2024-03-01-15-37-11/output.yaml experiments/2024-03-01-15-37-10/output.yaml experiments/2024-03-01-15-37-09/output.yaml experiments/2024-03-01-15-37-08/output.yaml experiments/2024-03-01-15-37-07/output.yaml experiments/2024-03-01-15-37-06/output.yaml experiments/2024-03-01-15-37-05/output.yaml experiments/2024-03-01-15-37-04/output.yaml experiments/2024-03-01-15-37-03/output.yaml experiments/2024-03-01-15-37-02/output.yaml experiments/2024-03-01-15-37-01/output.yaml experiments/2024-03-01-15-37-00/output.yaml experiments/2024-03-01-15-36-59/output.yaml experiments/2024-03-01-15-36-58/output.yaml experiments/2024-03-01-15-36-57/output.yaml
 ================================================================================
+experiment:   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer, p_outcome_env = 0.75
+p_outcome: 0.6
+outcomepref: 5.0
+runs: 40
+average self rating pos: 0.516313
+average self rating neg: 0.142624
+average self rating zero: 0.341062
+variance self rating pos: 0.174692
+variance self rating neg: 0.103545
+variance self rating zero: 0.0906239
+average other rating pos: 0.302263
+average other rating neg: 0.314912
+average other rating zero: 0.382826
+variance other rating pos: 0.0921636
+variance other rating neg: 0.0920987
+variance other rating zero: 0.0575453
+average prob(self action): 0.507
+variance prob(self action): 0.0683447
+sample folders: experiments/2024-03-01-15-38-28/output.yaml experiments/2024-03-01-15-38-27/output.yaml experiments/2024-03-01-15-38-26/output.yaml experiments/2024-03-01-15-38-25/output.yaml experiments/2024-03-01-15-38-24/output.yaml experiments/2024-03-01-15-38-23/output.yaml experiments/2024-03-01-15-38-22/output.yaml experiments/2024-03-01-15-38-21/output.yaml experiments/2024-03-01-15-38-20/output.yaml experiments/2024-03-01-15-38-19/output.yaml experiments/2024-03-01-15-38-18/output.yaml experiments/2024-03-01-15-38-17/output.yaml experiments/2024-03-01-15-38-16/output.yaml experiments/2024-03-01-15-38-15/output.yaml experiments/2024-03-01-15-38-14/output.yaml experiments/2024-03-01-15-38-13/output.yaml experiments/2024-03-01-15-38-12/output.yaml experiments/2024-03-01-15-38-11/output.yaml experiments/2024-03-01-15-38-10/output.yaml experiments/2024-03-01-15-38-09/output.yaml experiments/2024-03-01-15-38-08/output.yaml experiments/2024-03-01-15-38-07/output.yaml experiments/2024-03-01-15-38-06/output.yaml experiments/2024-03-01-15-38-05/output.yaml experiments/2024-03-01-15-38-04/output.yaml experiments/2024-03-01-15-38-03/output.yaml experiments/2024-03-01-15-38-02/output.yaml experiments/2024-03-01-15-38-01/output.yaml experiments/2024-03-01-15-38-00/output.yaml experiments/2024-03-01-15-37-59/output.yaml experiments/2024-03-01-15-37-58/output.yaml experiments/2024-03-01-15-37-57/output.yaml experiments/2024-03-01-15-37-56/output.yaml experiments/2024-03-01-15-37-55/output.yaml experiments/2024-03-01-15-37-54/output.yaml experiments/2024-03-01-15-37-53/output.yaml experiments/2024-03-01-15-37-52/output.yaml experiments/2024-03-01-15-37-51/output.yaml experiments/2024-03-01-15-37-50/output.yaml experiments/2024-03-01-15-37-49/output.yaml
+================================================================================
