@@ -20,3 +20,25 @@ average prob(self action): 0.301622
 variance prob(self action): 0.37241
 sample folders: experiments/2024-03-01-12-08-38/output.yaml experiments/2024-03-01-12-08-37/output.yaml experiments/2024-03-01-12-08-36/output.yaml experiments/2024-03-01-12-08-35/output.yaml experiments/2024-03-01-12-08-34/output.yaml experiments/2024-03-01-12-08-33/output.yaml experiments/2024-03-01-12-08-32/output.yaml experiments/2024-03-01-12-08-31/output.yaml experiments/2024-03-01-12-08-30/output.yaml experiments/2024-03-01-12-08-29/output.yaml experiments/2024-03-01-12-08-28/output.yaml experiments/2024-03-01-12-08-27/output.yaml experiments/2024-03-01-12-08-26/output.yaml experiments/2024-03-01-12-08-25/output.yaml experiments/2024-03-01-12-08-24/output.yaml experiments/2024-03-01-12-08-23/output.yaml experiments/2024-03-01-12-08-22/output.yaml experiments/2024-03-01-12-08-21/output.yaml experiments/2024-03-01-12-08-20/output.yaml experiments/2024-03-01-12-08-19/output.yaml experiments/2024-03-01-12-08-18/output.yaml experiments/2024-03-01-12-08-17/output.yaml experiments/2024-03-01-12-08-16/output.yaml experiments/2024-03-01-12-08-15/output.yaml experiments/2024-03-01-12-08-14/output.yaml experiments/2024-03-01-12-08-13/output.yaml experiments/2024-03-01-12-08-12/output.yaml experiments/2024-03-01-12-08-11/output.yaml experiments/2024-03-01-12-08-10/output.yaml experiments/2024-03-01-12-08-09/output.yaml experiments/2024-03-01-12-08-08/output.yaml experiments/2024-03-01-12-08-07/output.yaml experiments/2024-03-01-12-08-06/output.yaml experiments/2024-03-01-12-08-05/output.yaml experiments/2024-03-01-12-08-04/output.yaml experiments/2024-03-01-12-08-03/output.yaml experiments/2024-03-01-12-08-02/output.yaml
 ================================================================================
+experiment:   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_neg,
+p_outcome: 0.6
+outcomepref: 5.0
+runs: 4
+average self rating pos: 0.257897
+average self rating neg: 0.33768
+average self rating zero: 0.404423
+variance self rating pos: 0.269798
+variance self rating neg: 0.208664
+variance self rating zero: 0.103959
+average other rating pos: 0.000246094
+average other rating neg: 0.951288
+average other rating zero: 0.0484664
+variance other rating pos: 0.000129699
+variance other rating neg: 0.0095797
+variance other rating zero: 0.00956602
+average prob(self action): 0.28
+variance prob(self action): 0.369865
+sample folders: experiments/2024-03-01-12-10-13/output.yaml experiments/2024-03-01-12-10-12/output.yaml experiments/2024-03-01-12-10-11/output.yaml experiments/2024-03-01-12-10-10/output.yaml
+================================================================================
