@@ -324,7 +324,7 @@ class AgencyTask(object):
 
         # sampling the other agent's actions at random (p(other_action) = 0.5)
         self.action_other = self.action_other_names[utils.sample(np.array([self.p_other_action_env, 1.0-self.p_other_action_env]))]
-        observed_outcome = self.obs_outcome_names[utils.sample(np.array([self.p_outcome_env, 1.0-self.p_outcome_env]))]
+
         # defining what happens in the generative process: what observations are presented to the agent given certain states (actions and context)
         if action == "self_pressbutton" and self.action_other == "other_pressbutton":
             observed_choice_self = "self_buttonpress"
