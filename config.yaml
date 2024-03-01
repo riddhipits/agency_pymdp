@@ -1,13 +1,13 @@
 ---
 description: 
   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
-  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.9,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.01,
   expcondition = s_zer_o_pos,
 p_outcome: 0.6
 outcomepref: 5.0
 actionpref: 0.0
 noactionpref: 1.0
-lr_pA: 0.9
+lr_pA: 0.01
 T: 25
 
 showfig: 1
