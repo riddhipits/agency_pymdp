@@ -59,12 +59,12 @@ def create_A(p_outcome):
     
     # p(outcome | self_pos, other_pos, self_notpress, other_press) # flag
     #                       present    absent
-    A_outcome[:,0,0,1,0] = [0.5, 0.5]
+    A_outcome[:,0,0,1,0] = [1.0-p_outcome, p_outcome]
     # A_outcome[:,0,0,1,0] = [1.0-p_outcome, p_outcome]
     
     # p(outcome | self_pos, other_pos, self_press, other_notpress) # flag
     #                       present    absent
-    A_outcome[:,0,0,0,1] = [0.5, 0.5]
+    A_outcome[:,0,0,0,1] = [p_outcome, 1.0-p_outcome]
     # A_outcome[:,0,0,0,1] = [1.0-p_outcome, p_outcome]
     
     # p(outcome | self_pos, other_pos, self_notpress, other_notpress)
@@ -137,12 +137,12 @@ def create_A(p_outcome):
     
     # p(outcome | self_neg, other_neg, self_notpress, other_press) # flag
     #                       present    absent
-    A_outcome[:,1,1,1,0] = [0.5, 0.5]
+    A_outcome[:,1,1,1,0] = [1.0-p_outcome, p_outcome]
     # A_outcome[:,1,1,1,0] = [1.0-p_outcome, p_outcome]
     
     # p(outcome | self_neg, other_neg, self_press, other_notpress) # flag
     #                       present    absent
-    A_outcome[:,1,1,0,1] = [0.5, 0.5]
+    A_outcome[:,1,1,0,1] = [p_outcome, 1.0-p_outcome]
         # A_outcome[:,1,1,0,1] = [1.0-p_outcome, p_outcome]
     
     # p(outcome | self_neg, other_neg, self_notpress, other_notpress)
@@ -312,11 +312,11 @@ class AgencyTask(object):
     def __init__(self, expcondition, p_other_action_env, p_outcome_env):
         
         # defining the experimental conditions for the generative process
-        # self.expcondition_names = ['s_pos_o_zer', 's_neg_o_zer', 's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
+        self.expcondition_names = ['s_pos_o_zer', 's_neg_o_zer', 's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
         
-        self.expcondition_names = ['s_pos_o_pos', 's_pos_o_neg', 's_pos_o_zer',
-                                   's_neg_o_pos', 's_neg_o_neg', 's_neg_o_zer', 
-                                   's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
+        # self.expcondition_names = ['s_pos_o_pos', 's_pos_o_neg', 's_pos_o_zer',
+        #                            's_neg_o_pos', 's_neg_o_neg', 's_neg_o_zer', 
+        #                            's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
         
         self.num_expcondition = len(self.expcondition_names)
         
