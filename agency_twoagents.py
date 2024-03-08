@@ -326,7 +326,7 @@ class AgencyTask(object):
         self.obs_outcome_names = ['outcome_present', 'outcome_absent']
                 
     def step(self, action):
-
+        observed_outcome = None # adding a default value 
         # sampling the other agent's actions at random (p(other_action) = 0.5)
         self.action_other = self.action_other_names[utils.sample(np.array([self.p_other_action_env, 1.0-self.p_other_action_env]))]
 
