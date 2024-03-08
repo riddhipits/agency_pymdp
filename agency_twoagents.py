@@ -482,33 +482,33 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
         pA_t = my_agent.update_A(obs)
         pA_hist.append(pA_t)
         
-        print(t)
-        print()
-        print(obs)
-        print("other_pos, self_press, other_press")
-        print(my_agent.A[0][:,:,0,0,0])
-        print("other_pos, self_press, other_notpress")
-        print(my_agent.A[0][:,:,0,0,1])
-        print("other_pos, self_notpress, other_press")
-        print(my_agent.A[0][:,:,0,1,0])
-        print("other_pos, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,0,1,1])
-        print("other_neg, self_press, other_press")
-        print(my_agent.A[0][:,:,1,0,0])
-        print("other_neg, self_press, other_notpress")
-        print(my_agent.A[0][:,:,1,0,1])
-        print("other_neg, self_notpress, other_press")
-        print(my_agent.A[0][:,:,1,1,0])
-        print("other_neg, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,1,1,1])
-        print("other_zero, self_press, other_press")
-        print(my_agent.A[0][:,:,2,0,0])
-        print("other_zero, self_press, other_notpress")
-        print(my_agent.A[0][:,:,2,0,1])
-        print("other_zero, self_notpress, other_press")
-        print(my_agent.A[0][:,:,2,1,0])
-        print("other_zero, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,2,1,1])
+        # print(t)
+        # print()
+        # print(obs)
+        # print("other_pos, self_press, other_press")
+        # print(my_agent.A[0][:,:,0,0,0])
+        # print("other_pos, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,0,0,1])
+        # print("other_pos, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,0,1,0])
+        # print("other_pos, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,0,1,1])
+        # print("other_neg, self_press, other_press")
+        # print(my_agent.A[0][:,:,1,0,0])
+        # print("other_neg, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,1,0,1])
+        # print("other_neg, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,1,1,0])
+        # print("other_neg, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,1,1,1])
+        # print("other_zero, self_press, other_press")
+        # print(my_agent.A[0][:,:,2,0,0])
+        # print("other_zero, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,2,0,1])
+        # print("other_zero, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,2,1,0])
+        # print("other_zero, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,2,1,1])
         # print(q_pi.round(3))
         # print(efe.round(3))
             
@@ -620,7 +620,7 @@ def evaluate_p_self_action(log):
 
 # p_outcome_env = 1.0
 # p_other_action_env = 0.5
-# expcondition = None
+# expcondition = "s_pos_o_zer"
 
 # env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
@@ -637,3 +637,4 @@ def evaluate_p_self_action(log):
 
 
 # choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+
