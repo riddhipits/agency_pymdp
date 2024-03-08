@@ -48,6 +48,9 @@ def create_A(p_outcome):
     A_outcome = np.zeros( (len(obs_outcome_names), len(self_agency_names), 
                            len(other_agency_names), len(self_action_names), len(other_action_names)) )
     
+    # p(outcome | self_agency, :, self_press, :)
+    A_outcome
+    
     # SELF_POS, OTHER_POS
     
     # p(outcome | self_pos, other_pos, self_press, other_press)
