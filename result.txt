@@ -196,3 +196,25 @@ average prob(self action): 0.1935
 variance prob(self action): 0.27044
 sample folders: experiments/2024-03-08-15-28-05/output.yaml experiments/2024-03-08-15-28-03/output.yaml experiments/2024-03-08-15-28-02/output.yaml experiments/2024-03-08-15-28-01/output.yaml experiments/2024-03-08-15-28-00/output.yaml experiments/2024-03-08-15-27-59/output.yaml experiments/2024-03-08-15-27-58/output.yaml experiments/2024-03-08-15-27-57/output.yaml experiments/2024-03-08-15-27-56/output.yaml experiments/2024-03-08-15-27-55/output.yaml experiments/2024-03-08-15-27-54/output.yaml experiments/2024-03-08-15-27-53/output.yaml experiments/2024-03-08-15-27-52/output.yaml experiments/2024-03-08-15-27-51/output.yaml experiments/2024-03-08-15-27-49/output.yaml experiments/2024-03-08-15-27-48/output.yaml experiments/2024-03-08-15-27-47/output.yaml experiments/2024-03-08-15-27-46/output.yaml experiments/2024-03-08-15-27-45/output.yaml experiments/2024-03-08-15-27-44/output.yaml experiments/2024-03-08-15-27-43/output.yaml experiments/2024-03-08-15-27-42/output.yaml experiments/2024-03-08-15-27-41/output.yaml experiments/2024-03-08-15-27-40/output.yaml experiments/2024-03-08-15-27-39/output.yaml experiments/2024-03-08-15-27-38/output.yaml experiments/2024-03-08-15-27-37/output.yaml experiments/2024-03-08-15-27-36/output.yaml experiments/2024-03-08-15-27-35/output.yaml experiments/2024-03-08-15-27-34/output.yaml experiments/2024-03-08-15-27-33/output.yaml experiments/2024-03-08-15-27-32/output.yaml experiments/2024-03-08-15-27-31/output.yaml experiments/2024-03-08-15-27-29/output.yaml experiments/2024-03-08-15-27-28/output.yaml experiments/2024-03-08-15-27-27/output.yaml experiments/2024-03-08-15-27-26/output.yaml experiments/2024-03-08-15-27-25/output.yaml experiments/2024-03-08-15-27-24/output.yaml experiments/2024-03-08-15-27-22/output.yaml experiments/2024-03-08-15-27-21/output.yaml experiments/2024-03-08-15-27-20/output.yaml experiments/2024-03-08-15-27-19/output.yaml experiments/2024-03-08-15-27-18/output.yaml experiments/2024-03-08-15-27-17/output.yaml experiments/2024-03-08-15-27-16/output.yaml experiments/2024-03-08-15-27-15/output.yaml experiments/2024-03-08-15-27-14/output.yaml experiments/2024-03-08-15-27-13/output.yaml experiments/2024-03-08-15-27-12/output.yaml experiments/2024-03-08-15-27-11/output.yaml experiments/2024-03-08-15-27-10/output.yaml experiments/2024-03-08-15-27-09/output.yaml experiments/2024-03-08-15-27-08/output.yaml experiments/2024-03-08-15-27-07/output.yaml experiments/2024-03-08-15-27-06/output.yaml experiments/2024-03-08-15-27-05/output.yaml experiments/2024-03-08-15-27-04/output.yaml experiments/2024-03-08-15-27-03/output.yaml experiments/2024-03-08-15-27-02/output.yaml experiments/2024-03-08-15-27-01/output.yaml experiments/2024-03-08-15-27-00/output.yaml experiments/2024-03-08-15-26-59/output.yaml experiments/2024-03-08-15-26-58/output.yaml experiments/2024-03-08-15-26-57/output.yaml experiments/2024-03-08-15-26-56/output.yaml experiments/2024-03-08-15-26-55/output.yaml experiments/2024-03-08-15-26-54/output.yaml experiments/2024-03-08-15-26-53/output.yaml experiments/2024-03-08-15-26-52/output.yaml experiments/2024-03-08-15-26-51/output.yaml experiments/2024-03-08-15-26-50/output.yaml experiments/2024-03-08-15-26-49/output.yaml experiments/2024-03-08-15-26-48/output.yaml experiments/2024-03-08-15-26-47/output.yaml experiments/2024-03-08-15-26-46/output.yaml experiments/2024-03-08-15-26-45/output.yaml experiments/2024-03-08-15-26-22/output.yaml experiments/2024-03-08-15-26-21/output.yaml experiments/2024-03-08-15-26-20/output.yaml
 ================================================================================
+experiment:   A tensor 5050
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_pos, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 1
+average self rating pos: 0.0361689
+average self rating neg: 0.630322
+average self rating zero: 0.333509
+variance self rating pos: 2.5045e-08
+variance self rating neg: 8.35148e-08
+variance self rating zero: 8.55974e-09
+average other rating pos: 0.956639
+average other rating neg: 0.000219383
+average other rating zero: 0.0431415
+variance other rating pos: 1.14295e-07
+variance other rating neg: 2.03749e-10
+variance other rating zero: 2.90825e-09
+average prob(self action): 0.76
+variance prob(self action): 0
+sample folders: experiments/2024-03-08-15-28-27/output.yaml
+================================================================================
