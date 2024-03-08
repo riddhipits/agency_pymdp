@@ -64,3 +64,25 @@ average prob(self action): 0.504
 variance prob(self action): 0.0457238
 sample folders: experiments/2024-03-08-18-50-39/output.yaml experiments/2024-03-08-18-50-38/output.yaml experiments/2024-03-08-18-50-37/output.yaml experiments/2024-03-08-18-50-36/output.yaml experiments/2024-03-08-18-50-35/output.yaml experiments/2024-03-08-18-50-34/output.yaml experiments/2024-03-08-18-50-33/output.yaml experiments/2024-03-08-18-50-32/output.yaml experiments/2024-03-08-18-50-31/output.yaml experiments/2024-03-08-18-50-30/output.yaml experiments/2024-03-08-18-50-29/output.yaml experiments/2024-03-08-18-50-28/output.yaml experiments/2024-03-08-18-50-27/output.yaml experiments/2024-03-08-18-50-26/output.yaml experiments/2024-03-08-18-50-25/output.yaml
 ================================================================================
+experiment:   A tensor trying something
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_pos_o_zer, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 15
+average self rating pos: 0.924774
+average self rating neg: 0.0243577
+average self rating zero: 0.0508687
+variance self rating pos: 0.172157
+variance self rating neg: 0.0815412
+variance self rating zero: 0.09068
+average other rating pos: 0.647594
+average other rating neg: 0.0890774
+average other rating zero: 0.263328
+variance other rating pos: 0.16811
+variance other rating neg: 0.0965917
+variance other rating zero: 0.0796723
+average prob(self action): 0.624
+variance prob(self action): 0.0433282
+sample folders: experiments/2024-03-08-18-51-07/output.yaml experiments/2024-03-08-18-51-06/output.yaml experiments/2024-03-08-18-51-05/output.yaml experiments/2024-03-08-18-51-04/output.yaml experiments/2024-03-08-18-51-03/output.yaml experiments/2024-03-08-18-51-01/output.yaml experiments/2024-03-08-18-51-00/output.yaml experiments/2024-03-08-18-50-59/output.yaml experiments/2024-03-08-18-50-58/output.yaml experiments/2024-03-08-18-50-57/output.yaml experiments/2024-03-08-18-50-56/output.yaml experiments/2024-03-08-18-50-55/output.yaml experiments/2024-03-08-18-50-54/output.yaml experiments/2024-03-08-18-50-53/output.yaml experiments/2024-03-08-18-50-39/output.yaml
+================================================================================
