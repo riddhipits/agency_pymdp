@@ -1,0 +1,22 @@
+experiment:   A tensor trying something
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_neg, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 15
+average self rating pos: 0.474603
+average self rating neg: 0.263071
+average self rating zero: 0.262326
+variance self rating pos: 0.171206
+variance self rating neg: 0.123094
+variance self rating zero: 0.050104
+average other rating pos: 0.000307491
+average other rating neg: 0.984245
+average other rating zero: 0.0154478
+variance other rating pos: 0.000352843
+variance other rating neg: 0.00352048
+variance other rating zero: 0.0033495
+average prob(self action): 0.133333
+variance prob(self action): 0.237954
+sample folders: experiments/2024-03-08-19-27-13/output.yaml experiments/2024-03-08-19-27-12/output.yaml experiments/2024-03-08-19-27-11/output.yaml experiments/2024-03-08-19-27-10/output.yaml experiments/2024-03-08-19-27-08/output.yaml experiments/2024-03-08-19-27-07/output.yaml experiments/2024-03-08-19-27-06/output.yaml experiments/2024-03-08-19-27-05/output.yaml experiments/2024-03-08-19-27-04/output.yaml experiments/2024-03-08-19-27-03/output.yaml experiments/2024-03-08-19-27-02/output.yaml experiments/2024-03-08-19-27-00/output.yaml
+================================================================================
