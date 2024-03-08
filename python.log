@@ -700,3 +700,21 @@ Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.9/site-packages/numpy/core/_methods.py", line 40, in _amax
     return umr_maximum(a, axis, None, out, keepdims, initial, where)
 TypeError: cannot perform reduce with flexible type
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 157, in <module>
+    multi_log = agency_twoagents.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents.py", line 456, in run_active_inference_loop
+    q_pi, efe = my_agent.infer_policies_factorized()
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/agent.py", line 656, in infer_policies_factorized
+    q_pi, G = control.update_posterior_policies_factorized(
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/control.py", line 300, in update_posterior_policies_factorized
+    G[idx] += calc_expected_utility(qo_pi, C)
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/control.py", line 498, in calc_expected_utility
+    C_prob = softmax_obj_arr(C_tiled) # convert relative log probabilities into proper probability distribution
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/maths.py", line 341, in softmax_obj_arr
+    output[i] = softmax(arr_i)
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/maths.py", line 331, in softmax
+    output = dist - dist.max(axis=0)
+  File "/opt/anaconda3/lib/python3.9/site-packages/numpy/core/_methods.py", line 40, in _amax
+    return umr_maximum(a, axis, None, out, keepdims, initial, where)
+TypeError: cannot perform reduce with flexible type
