@@ -3,7 +3,7 @@ description:
   A tensor 5050
   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
   actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
-  expcondition = s_zer_o_pos, p_outcome_env = 1.0
+  expcondition = s_zer_o_neg, p_outcome_env = 1.0
 p_outcome: 0.6
 outcomepref: 5.0
 actionpref: 0.0
@@ -16,7 +16,7 @@ figname: "test"
 savefig: 0
 
 generative-process:
-  expcondition: s_zer_o_pos
+  expcondition: s_zer_o_neg
   p_outcome_env: 1.0
   p_other_action_env: 0.5
 
