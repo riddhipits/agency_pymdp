@@ -138,3 +138,17 @@ Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/control.py", line 1036, in select_highest
     return int(same_prob[0])
 IndexError: index 0 is out of bounds for axis 0 with size 0
+/opt/anaconda3/lib/python3.9/site-packages/pymdp/maths.py:531: RuntimeWarning: invalid value encountered in log
+  G += qx[tuple(i)] * po.dot(np.log(po + np.exp(-16)))
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment.py", line 157, in <module>
+    multi_log = agency_twoagents.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents.py", line 464, in run_active_inference_loop
+    chosen_action_id = my_agent.sample_action()
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/agent.py", line 718, in sample_action
+    action = control.sample_action(
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/control.py", line 862, in sample_action
+    selected_policy[factor_i] = select_highest(action_marginals[factor_i])
+  File "/opt/anaconda3/lib/python3.9/site-packages/pymdp/control.py", line 1036, in select_highest
+    return int(same_prob[0])
+IndexError: index 0 is out of bounds for axis 0 with size 0
