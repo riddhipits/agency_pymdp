@@ -152,3 +152,25 @@ average prob(self action): 0.48
 variance prob(self action): 0.4
 sample folders: experiments/2024-03-08-11-50-21/output.yaml experiments/2024-03-08-11-50-20/output.yaml
 ================================================================================
+experiment:   A tensor SELF other
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_neg_o_zer, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 1
+average self rating pos: 7.09728e-06
+average self rating neg: 0.993528
+average self rating zero: 0.00646449
+variance self rating pos: 7.89592e-13
+variance self rating neg: 4.0918e-07
+variance self rating zero: 3.54085e-09
+average other rating pos: 0.310113
+average other rating neg: 0.334819
+average other rating zero: 0.355069
+variance other rating pos: 3.83575e-07
+variance other rating neg: 1.7232e-07
+variance other rating zero: 4.44105e-07
+average prob(self action): 0.28
+variance prob(self action): 0
+sample folders: experiments/2024-03-08-11-50-58/output.yaml
+================================================================================
