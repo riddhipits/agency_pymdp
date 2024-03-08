@@ -312,11 +312,11 @@ class AgencyTask(object):
     def __init__(self, expcondition, p_other_action_env, p_outcome_env):
         
         # defining the experimental conditions for the generative process
-        self.expcondition_names = ['s_pos_o_zer', 's_neg_o_zer', 's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
+        # self.expcondition_names = ['s_pos_o_zer', 's_neg_o_zer', 's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
         
-        # self.expcondition_names = ['s_pos_o_pos', 's_pos_o_neg', 's_pos_o_zer',
-        #                            's_neg_o_pos', 's_neg_o_neg', 's_neg_o_zer', 
-        #                            's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
+        self.expcondition_names = ['s_pos_o_pos', 's_pos_o_neg', 's_pos_o_zer',
+                                   's_neg_o_pos', 's_neg_o_neg', 's_neg_o_zer', 
+                                   's_zer_o_pos', 's_zer_o_neg', 's_zer_o_zer']
         
         self.num_expcondition = len(self.expcondition_names)
         
@@ -482,33 +482,33 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
         pA_t = my_agent.update_A(obs)
         pA_hist.append(pA_t)
         
-        # print(t)
-        # print()
-        # print(obs)
-        # print("other_pos, self_press, other_press")
-        # print(my_agent.A[0][:,:,0,0,0])
-        # print("other_pos, self_press, other_notpress")
-        # print(my_agent.A[0][:,:,0,0,1])
-        # print("other_pos, self_notpress, other_press")
-        # print(my_agent.A[0][:,:,0,1,0])
-        # print("other_pos, self_notpress, other_notpress")
-        # print(my_agent.A[0][:,:,0,1,1])
-        # print("other_neg, self_press, other_press")
-        # print(my_agent.A[0][:,:,1,0,0])
-        # print("other_neg, self_press, other_notpress")
-        # print(my_agent.A[0][:,:,1,0,1])
-        # print("other_neg, self_notpress, other_press")
-        # print(my_agent.A[0][:,:,1,1,0])
-        # print("other_neg, self_notpress, other_notpress")
-        # print(my_agent.A[0][:,:,1,1,1])
-        # print("other_zero, self_press, other_press")
-        # print(my_agent.A[0][:,:,2,0,0])
-        # print("other_zero, self_press, other_notpress")
-        # print(my_agent.A[0][:,:,2,0,1])
-        # print("other_zero, self_notpress, other_press")
-        # print(my_agent.A[0][:,:,2,1,0])
-        # print("other_zero, self_notpress, other_notpress")
-        # print(my_agent.A[0][:,:,2,1,1])
+        print(t)
+        print()
+        print(obs)
+        print("other_pos, self_press, other_press")
+        print(my_agent.A[0][:,:,0,0,0])
+        print("other_pos, self_press, other_notpress")
+        print(my_agent.A[0][:,:,0,0,1])
+        print("other_pos, self_notpress, other_press")
+        print(my_agent.A[0][:,:,0,1,0])
+        print("other_pos, self_notpress, other_notpress")
+        print(my_agent.A[0][:,:,0,1,1])
+        print("other_neg, self_press, other_press")
+        print(my_agent.A[0][:,:,1,0,0])
+        print("other_neg, self_press, other_notpress")
+        print(my_agent.A[0][:,:,1,0,1])
+        print("other_neg, self_notpress, other_press")
+        print(my_agent.A[0][:,:,1,1,0])
+        print("other_neg, self_notpress, other_notpress")
+        print(my_agent.A[0][:,:,1,1,1])
+        print("other_zero, self_press, other_press")
+        print(my_agent.A[0][:,:,2,0,0])
+        print("other_zero, self_press, other_notpress")
+        print(my_agent.A[0][:,:,2,0,1])
+        print("other_zero, self_notpress, other_press")
+        print(my_agent.A[0][:,:,2,1,0])
+        print("other_zero, self_notpress, other_notpress")
+        print(my_agent.A[0][:,:,2,1,1])
         # print(q_pi.round(3))
         # print(efe.round(3))
             
@@ -569,7 +569,6 @@ def plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = None):
     else:
         plt.show()
 
-# plot_all_choices_beliefs(choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist)
 
 # FOR EXPERIMENT LOGGING
 def evaluate_length(log):
@@ -635,6 +634,5 @@ def evaluate_p_self_action(log):
 #                  modalities_to_learn=learnable_modalities,
 #                  lr_pA=0.1, use_param_info_gain=True)
 
-
-# choice_self_hist, belief_self_context_hist, belief_other_context_hist, expcondition_hist, belief_other_action_hist, outcome_hist, pA_hist = run_active_inference_loop(my_agent, env, T = T, verbose = False)
-
+# log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+# plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
