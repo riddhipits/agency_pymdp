@@ -42,3 +42,25 @@ average prob(self action): 0.316
 variance prob(self action): 0.0847585
 sample folders: experiments/2024-03-08-17-56-17/output.yaml experiments/2024-03-08-17-56-16/output.yaml experiments/2024-03-08-17-56-15/output.yaml experiments/2024-03-08-17-56-14/output.yaml experiments/2024-03-08-17-56-13/output.yaml experiments/2024-03-08-17-56-12/output.yaml experiments/2024-03-08-17-56-11/output.yaml experiments/2024-03-08-17-56-10/output.yaml experiments/2024-03-08-17-56-09/output.yaml experiments/2024-03-08-17-54-57/output.yaml
 ================================================================================
+experiment:   A tensor trying something
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_zer, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 10
+average self rating pos: 0.321672
+average self rating neg: 0.328399
+average self rating zero: 0.349929
+variance self rating pos: 0.0658848
+variance self rating neg: 0.0665716
+variance self rating zero: 0.00572279
+average other rating pos: 0.30997
+average other rating neg: 0.324208
+average other rating zero: 0.365823
+variance other rating pos: 0.123915
+variance other rating neg: 0.120628
+variance other rating zero: 0.0185988
+average prob(self action): 0.468
+variance prob(self action): 0.0820731
+sample folders: experiments/2024-03-08-17-56-54/output.yaml experiments/2024-03-08-17-56-53/output.yaml experiments/2024-03-08-17-56-52/output.yaml experiments/2024-03-08-17-56-51/output.yaml experiments/2024-03-08-17-56-50/output.yaml experiments/2024-03-08-17-56-49/output.yaml experiments/2024-03-08-17-56-48/output.yaml experiments/2024-03-08-17-56-47/output.yaml experiments/2024-03-08-17-56-46/output.yaml experiments/2024-03-08-17-56-45/output.yaml
+================================================================================
