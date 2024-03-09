@@ -196,3 +196,25 @@ average prob(self action): 0.6
 variance prob(self action): 0
 sample folders: experiments/2024-03-09-15-16-22/output.yaml
 ================================================================================
+experiment:   baseline (clashes in A_outcome are 0.5 0.5)
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_pos, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 1
+average self rating pos: 0.235202
+average self rating neg: 0.297327
+average self rating zero: 0.46747
+variance self rating pos: 6.84261e-08
+variance self rating neg: 4.80889e-07
+variance self rating zero: 4.50685e-07
+average other rating pos: 0.959824
+average other rating neg: 0.00031974
+average other rating zero: 0.0398563
+variance other rating pos: 2.15615e-08
+variance other rating neg: 1.7176e-10
+variance other rating zero: 1.82667e-08
+average prob(self action): 0.08
+variance prob(self action): 0
+sample folders: experiments/2024-03-09-15-17-09/output.yaml
+================================================================================
