@@ -293,11 +293,9 @@ def create_D():
     
     D = utils.obj_array(num_factors)
     
-    # D_self_context = np.ones(num_states[0])/float(num_states[0])
-    D_self_context = np.array([1,0,0])
+    D_self_context = np.ones(num_states[0])/float(num_states[0])
     
-    # D_other_context = np.ones(num_states[1])/float(num_states[1])
-    D_other_context = np.array([1,0,0])
+    D_other_context = np.ones(num_states[1])/float(num_states[1])
     
     D_self_choice = np.zeros(len(self_action_names)) 
     D_self_choice = np.ones(num_states[2])/float(num_states[2])
@@ -622,6 +620,7 @@ def evaluate_p_self_action(log):
 # p_outcome_env = 1.0
 # p_other_action_env = 0.5
 # expcondition = "s_pos_o_zer"
+# "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
 
 # env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
