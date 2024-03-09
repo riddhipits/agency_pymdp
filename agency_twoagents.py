@@ -113,7 +113,7 @@ def create_A(p_outcome):
     
     # p(outcome | self_neg, other_pos, self_press, other_press) # flag
     #                       present    absent
-    A_outcome[:,1,0,0,0] = [p_outcome, 1.0-p_outcome]
+    A_outcome[:,1,0,0,0] = [1.0-p_outcome, p_outcome]
     #    A_outcome[:,1,0,0,0] = [1.0-p_outcome, p_outcome]
     
     # p(outcome | self_neg, other_pos, self_notpress, other_press)
@@ -126,7 +126,7 @@ def create_A(p_outcome):
     
     # p(outcome | self_neg, other_pos, self_notpress, other_notpress) # flag
     #                       present    absent
-    A_outcome[:,1,0,1,1] = [1.0-p_outcome, p_outcome]
+    A_outcome[:,1,0,1,1] = [p_outcome, 1.0-p_outcome]
     # A_outcome[:,1,0,1,1] = [1.0-p_outcome, p_outcome]
     
     # SELF_NEG, OTHER_NEG
