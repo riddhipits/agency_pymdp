@@ -1,0 +1,22 @@
+experiment:   high motivation
+  T = 25,  p_outcome = 0.6,  outcomepref = 100.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_neg, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 1
+average self rating pos: 0.242164
+average self rating neg: 0.268458
+average self rating zero: 0.489378
+variance self rating pos: 3.69212e-07
+variance self rating neg: 2.61735e-07
+variance self rating zero: 1.07477e-07
+average other rating pos: 0.000128715
+average other rating neg: 0.972227
+average other rating zero: 0.0276447
+variance other rating pos: 1.94586e-10
+variance other rating neg: 3.74123e-07
+variance other rating zero: 4.10714e-08
+average prob(self action): 0.12
+variance prob(self action): 0
+sample folders: experiments/2024-03-11-11-10-37/output.yaml
+================================================================================
