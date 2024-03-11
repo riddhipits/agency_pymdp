@@ -1,0 +1,22 @@
+experiment:   lower lr_pA
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.01,
+  expcondition = s_zer_o_neg, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 20
+average self rating pos: 0.363474
+average self rating neg: 0.22663
+average self rating zero: 0.409895
+variance self rating pos: 0.192683
+variance self rating neg: 0.180281
+variance self rating zero: 0.0643235
+average other rating pos: 0.000379383
+average other rating neg: 0.953995
+average other rating zero: 0.0456254
+variance other rating pos: 0.000148914
+variance other rating neg: 0.00641457
+variance other rating zero: 0.00630461
+average prob(self action): 0.278
+variance prob(self action): 0.335255
+sample folders: experiments/2024-03-11-11-36-46/output.yaml experiments/2024-03-11-11-36-45/output.yaml experiments/2024-03-11-11-36-44/output.yaml experiments/2024-03-11-11-36-43/output.yaml experiments/2024-03-11-11-36-42/output.yaml experiments/2024-03-11-11-36-41/output.yaml experiments/2024-03-11-11-36-40/output.yaml experiments/2024-03-11-11-36-39/output.yaml experiments/2024-03-11-11-36-38/output.yaml experiments/2024-03-11-11-36-37/output.yaml experiments/2024-03-11-11-36-36/output.yaml experiments/2024-03-11-11-36-35/output.yaml experiments/2024-03-11-11-36-34/output.yaml experiments/2024-03-11-11-36-33/output.yaml experiments/2024-03-11-11-36-32/output.yaml experiments/2024-03-11-11-36-31/output.yaml experiments/2024-03-11-11-36-30/output.yaml experiments/2024-03-11-11-36-29/output.yaml experiments/2024-03-11-11-36-28/output.yaml experiments/2024-03-11-11-36-27/output.yaml
+================================================================================
