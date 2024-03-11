@@ -643,7 +643,7 @@ def evaluate_p_self_action(log):
 # my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
 #                  pA=pA, control_fac_idx=controllable_indices,
 #                  modalities_to_learn=learnable_modalities,
-#                  lr_pA=0.1, use_param_info_gain=True)
+#                  lr_pA=1.0, use_param_info_gain=True)
 
 # log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
-# plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
+# plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = "lr1dot0.png")
