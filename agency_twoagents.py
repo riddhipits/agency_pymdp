@@ -294,14 +294,16 @@ def create_D():
     D = utils.obj_array(num_factors)
     
     D_self_context = np.ones(num_states[0])/float(num_states[0])
+    # D_self_context = np.array([1, 0, 0])
     
     D_other_context = np.ones(num_states[1])/float(num_states[1])
-    
-    D_self_choice = np.zeros(len(self_action_names)) 
+    # D_other_context = np.array([1, 0, 0])
+
     D_self_choice = np.ones(num_states[2])/float(num_states[2])
-    
-    D_other_choice = np.zeros(len(other_action_names)) 
+    # D_self_choice = np.array([1, 0])
+
     D_other_choice = np.ones(num_states[3])/float(num_states[3])
+    # D_other_choice = np.array([1, 0])
 
     D[0], D[1], D[2], D[3] = D_self_context, D_other_context, D_self_choice, D_other_choice
     
@@ -509,6 +511,14 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
         print(my_agent.A[0][:,:,2,1,0])
         print("other_zero, self_notpress, other_notpress")
         print(my_agent.A[0][:,:,2,1,1])
+        print("D for self agency")
+        print(my_agent.D[0])
+        print("D for other agency")
+        print(my_agent.D[1])
+        print("D for self actions")
+        print(my_agent.D[2])
+        print("D for other actions")
+        print(my_agent.D[3])
         # print(q_pi.round(3))
         # print(efe.round(3))
             
@@ -636,4 +646,4 @@ my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
                  lr_pA=0.1, use_param_info_gain=True)
 
 log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
-# plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
+plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
