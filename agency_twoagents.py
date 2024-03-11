@@ -484,41 +484,41 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
         pA_t = my_agent.update_A(obs)
         pA_hist.append(pA_t)
         
-        print(t)
-        print()
-        print(obs)
-        print("other_pos, self_press, other_press")
-        print(my_agent.A[0][:,:,0,0,0])
-        print("other_pos, self_press, other_notpress")
-        print(my_agent.A[0][:,:,0,0,1])
-        print("other_pos, self_notpress, other_press")
-        print(my_agent.A[0][:,:,0,1,0])
-        print("other_pos, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,0,1,1])
-        print("other_neg, self_press, other_press")
-        print(my_agent.A[0][:,:,1,0,0])
-        print("other_neg, self_press, other_notpress")
-        print(my_agent.A[0][:,:,1,0,1])
-        print("other_neg, self_notpress, other_press")
-        print(my_agent.A[0][:,:,1,1,0])
-        print("other_neg, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,1,1,1])
-        print("other_zero, self_press, other_press")
-        print(my_agent.A[0][:,:,2,0,0])
-        print("other_zero, self_press, other_notpress")
-        print(my_agent.A[0][:,:,2,0,1])
-        print("other_zero, self_notpress, other_press")
-        print(my_agent.A[0][:,:,2,1,0])
-        print("other_zero, self_notpress, other_notpress")
-        print(my_agent.A[0][:,:,2,1,1])
-        print("D for self agency")
-        print(my_agent.D[0])
-        print("D for other agency")
-        print(my_agent.D[1])
-        print("D for self actions")
-        print(my_agent.D[2])
-        print("D for other actions")
-        print(my_agent.D[3])
+        # print(t)
+        # print()
+        # print(obs)
+        # print("other_pos, self_press, other_press")
+        # print(my_agent.A[0][:,:,0,0,0])
+        # print("other_pos, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,0,0,1])
+        # print("other_pos, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,0,1,0])
+        # print("other_pos, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,0,1,1])
+        # print("other_neg, self_press, other_press")
+        # print(my_agent.A[0][:,:,1,0,0])
+        # print("other_neg, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,1,0,1])
+        # print("other_neg, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,1,1,0])
+        # print("other_neg, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,1,1,1])
+        # print("other_zero, self_press, other_press")
+        # print(my_agent.A[0][:,:,2,0,0])
+        # print("other_zero, self_press, other_notpress")
+        # print(my_agent.A[0][:,:,2,0,1])
+        # print("other_zero, self_notpress, other_press")
+        # print(my_agent.A[0][:,:,2,1,0])
+        # print("other_zero, self_notpress, other_notpress")
+        # print(my_agent.A[0][:,:,2,1,1])
+        # print("D for self agency")
+        # print(my_agent.D[0])
+        # print("D for other agency")
+        # print(my_agent.D[1])
+        # print("D for self actions")
+        # print(my_agent.D[2])
+        # print("D for other actions")
+        # print(my_agent.D[3])
         # print(q_pi.round(3))
         # print(efe.round(3))
             
@@ -627,23 +627,23 @@ def evaluate_p_self_action(log):
 #     plt.show()
 
 
-p_outcome_env = 1.0
-p_other_action_env = 0.5
-expcondition = "s_pos_o_zer"
-#  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
+# p_outcome_env = 1.0
+# p_other_action_env = 0.5
+# expcondition = "s_pos_o_zer"
+# #  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
 
-env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
+# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
-T = 25
+# T = 25
 
-A,A_factor_list,pA = create_A(p_outcome = 0.6)
-B = create_B()
-C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
-D = create_D()
-my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
-                 pA=pA, control_fac_idx=controllable_indices,
-                 modalities_to_learn=learnable_modalities,
-                 lr_pA=0.1, use_param_info_gain=True)
+# A,A_factor_list,pA = create_A(p_outcome = 0.6)
+# B = create_B()
+# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
+# D = create_D()
+# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+#                  pA=pA, control_fac_idx=controllable_indices,
+#                  modalities_to_learn=learnable_modalities,
+#                  lr_pA=0.1, use_param_info_gain=True)
 
-log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
-plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
+# log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+# plot_all_choices_beliefs(log, env, savefig = 0, fig_file_name = None)
