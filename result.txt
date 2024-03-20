@@ -218,3 +218,25 @@ average prob(self action): 0.448
 variance prob(self action): 0.0775629
 sample folders: experiments/2024-03-20-13-55-56/output.yaml experiments/2024-03-20-13-55-55/output.yaml experiments/2024-03-20-13-55-54/output.yaml experiments/2024-03-20-13-55-53/output.yaml experiments/2024-03-20-13-55-52/output.yaml
 ================================================================================
+experiment:   post-TNB session; adding priors;
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1, habit_press = ,
+  expcondition = s_zer_o_zer, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 5
+average self rating pos: 0.364953
+average self rating neg: 0.278544
+average self rating zero: 0.356503
+variance self rating pos: 0.0538181
+variance self rating neg: 0.0518747
+variance self rating zero: 0.0117733
+average other rating pos: 0.276724
+average other rating neg: 0.372663
+average other rating zero: 0.350613
+variance other rating pos: 0.0925088
+variance other rating neg: 0.120162
+variance other rating zero: 0.0285715
+average prob(self action): 0.44
+variance prob(self action): 0.104307
+sample folders: experiments/2024-03-20-13-56-15/output.yaml experiments/2024-03-20-13-56-14/output.yaml experiments/2024-03-20-13-56-13/output.yaml experiments/2024-03-20-13-56-12/output.yaml experiments/2024-03-20-13-56-11/output.yaml
+================================================================================
