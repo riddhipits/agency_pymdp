@@ -9,7 +9,7 @@ outcomepref: 5.0
 actionpref: 0.0
 noactionpref: 1.0
 lr_pA: 0.1
-habit_press: 20
+habit_press: 50
 T: 25
 
 showfig: 0
