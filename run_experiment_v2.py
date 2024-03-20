@@ -46,14 +46,15 @@ def setup_log_dir(data_dir, config_file):
 
 
 def setup_generative_model_and_process(generative_process_dict, 
-                                       p_outcome, outcomepref, actionpref, noactionpref, lr_pA):
+                                       p_outcome, outcomepref, actionpref, noactionpref, lr_pA, habit_press):
     
     """ Creating the focal agent (generative model) """
     A,A_factor_list,pA = agency_twoagents_v2.create_A(p_outcome = p_outcome)
     B = agency_twoagents_v2.create_B()
     C = agency_twoagents_v2.create_C(outcomepref = outcomepref, actionpref = actionpref, noactionpref = noactionpref)
     D = agency_twoagents_v2.create_D()
-    my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+    E = agency_twoagents_v2.create_E(habit_press)
+    my_agent = Agent(A=A, B=B, C=C, D=D, E=E, A_factor_list=A_factor_list,
                      pA=pA, control_fac_idx=agency_twoagents_v2.controllable_indices,
                      modalities_to_learn=agency_twoagents_v2.learnable_modalities,
                      lr_pA=lr_pA, use_param_info_gain=True)

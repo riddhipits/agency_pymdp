@@ -201,6 +201,12 @@ def create_D():
 
     return D
 
+def create_E(habit_press):
+    
+    E = np.array([habit_press,0])
+    
+    return E
+
 class AgencyTask(object):
     
     def __init__(self, expcondition, p_other_action_env, p_outcome_env):
@@ -423,7 +429,7 @@ def plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = None):
     
     T = log['choice_self_hist'].shape[1]
 
-    fig, axes = plt.subplots(nrows = 5, ncols = 1, figsize = (15,10))
+    fig, axes = plt.subplots(nrows = 4, ncols = 1, figsize = (15,10))
     
     exp_cond_text = f'Experimental Condition: {env.expcondition}'
     plt.text(0.35, -0.45, exp_cond_text, transform=plt.gca().transAxes,
@@ -477,27 +483,29 @@ def evaluate_p_self_action(log):
 
 ##################### TESTING #####################
 
-# p_outcome_env = 1.0
-# p_other_action_env = 0.5
-# expcondition = "s_pos_o_zer"
-# #  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
+p_outcome_env = 1.0
+p_other_action_env = 0.5
+habit_press = 10
+expcondition = "s_zer_o_zer"
+#  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
 
-# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
+env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
-# T = 25
+T = 25
 
-# A,A_factor_list,pA = create_A(p_outcome = 0.6)
-# B = create_B()
-# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
-# D = create_D()
-# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
-#                  pA=pA, control_fac_idx=controllable_indices,
-#                  modalities_to_learn=learnable_modalities,
-#                  lr_pA=1.0, use_param_info_gain=True)
+A,A_factor_list,pA = create_A(p_outcome = 0.6)
+B = create_B()
+C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
+D = create_D()
+E = create_E(habit_press)
+my_agent = Agent(A=A, B=B, C=C, D=D, E=E, A_factor_list=A_factor_list,
+                 pA=pA, control_fac_idx=controllable_indices,
+                 modalities_to_learn=learnable_modalities,
+                 lr_pA=1.0, use_param_info_gain=True)
 
-# log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
 
-# plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = "test.png")
+plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = "test.png")
 
 
 ##################### STORAGE #####################
