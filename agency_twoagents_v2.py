@@ -189,13 +189,16 @@ def create_D():
     D = utils.obj_array(num_factors)
     
     D_context = np.ones(num_states[0])/float(num_states[0])
-    
+    D_context = np.array([0, 5, 5, 0])
+
     D_self_action = np.ones(num_states[1])/float(num_states[1])
     
     D_other_action = np.ones(num_states[2])/float(num_states[2])
 
     D[0], D[1], D[2] = D_context, D_self_action, D_other_action
     
+    D = utils.norm_dist_obj_arr(D)
+
     return D
 
 class AgencyTask(object):
@@ -474,27 +477,27 @@ def evaluate_p_self_action(log):
 
 ##################### TESTING #####################
 
-# p_outcome_env = 1.0
-# p_other_action_env = 0.5
-# expcondition = "s_pos_o_zer"
-# #  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
+p_outcome_env = 1.0
+p_other_action_env = 0.5
+expcondition = "s_pos_o_zer"
+#  "s_zer_o_neg", "s_neg_o_zer", "s_zer_o_zer", "s_pos_o_zer", "s_zer_o_pos"
 
-# env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
+env = AgencyTask(expcondition = expcondition, p_other_action_env = p_other_action_env, p_outcome_env = p_outcome_env)
 
-# T = 25
+T = 25
 
-# A,A_factor_list,pA = create_A(p_outcome = 0.6)
-# B = create_B()
-# C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
-# D = create_D()
-# my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
-#                  pA=pA, control_fac_idx=controllable_indices,
-#                  modalities_to_learn=learnable_modalities,
-#                  lr_pA=1.0, use_param_info_gain=True)
+A,A_factor_list,pA = create_A(p_outcome = 0.6)
+B = create_B()
+C = create_C(outcomepref = 5.0, actionpref = 0.0, noactionpref = 1.0)
+D = create_D()
+my_agent = Agent(A=A, B=B, C=C, D=D, A_factor_list=A_factor_list,
+                 pA=pA, control_fac_idx=controllable_indices,
+                 modalities_to_learn=learnable_modalities,
+                 lr_pA=1.0, use_param_info_gain=True)
 
-# log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
+log = run_active_inference_loop(my_agent, env, T = T, verbose = False)
 
-# plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = "test.png")
+plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = "test.png")
 
 
 ##################### STORAGE #####################
