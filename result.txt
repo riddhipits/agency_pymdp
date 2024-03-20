@@ -636,3 +636,25 @@ average prob(self action): 0.384
 variance prob(self action): 0.0407922
 sample folders: experiments/2024-03-20-14-58-18/output.yaml experiments/2024-03-20-14-58-17/output.yaml experiments/2024-03-20-14-58-16/output.yaml experiments/2024-03-20-14-58-15/output.yaml experiments/2024-03-20-14-58-14/output.yaml experiments/2024-03-20-14-58-13/output.yaml experiments/2024-03-20-14-58-12/output.yaml experiments/2024-03-20-14-58-11/output.yaml experiments/2024-03-20-14-58-10/output.yaml experiments/2024-03-20-14-58-09/output.yaml
 ================================================================================
+experiment:   post-TNB session; adding priors; gamma = 100.0
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0, gamma = 100.0
+  actionpref = 0.3, noactionpref = 0.1,  lr_pA = 0.1, habit_press = 50.0,
+  expcondition = s_zer_o_zer, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 10
+average self rating pos: 0.250283
+average self rating neg: 0.482862
+average self rating zero: 0.266856
+variance self rating pos: 0.20054
+variance self rating neg: 0.302692
+variance self rating zero: 0.125984
+average other rating pos: 0.300079
+average other rating neg: 0.327268
+average other rating zero: 0.372653
+variance other rating pos: 0.156136
+variance other rating neg: 0.167413
+variance other rating zero: 0.0578691
+average prob(self action): 0.488
+variance prob(self action): 0.0754718
+sample folders: experiments/2024-03-20-14-58-41/output.yaml experiments/2024-03-20-14-58-40/output.yaml experiments/2024-03-20-14-58-39/output.yaml experiments/2024-03-20-14-58-38/output.yaml experiments/2024-03-20-14-58-37/output.yaml experiments/2024-03-20-14-58-36/output.yaml experiments/2024-03-20-14-58-34/output.yaml experiments/2024-03-20-14-58-33/output.yaml experiments/2024-03-20-14-58-18/output.yaml experiments/2024-03-20-14-58-17/output.yaml
+================================================================================
