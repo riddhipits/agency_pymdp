@@ -1,0 +1,22 @@
+experiment:   lower lr_pA
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.01,
+  expcondition = s_zer_o_pos, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 2
+average self rating pos: 0.99057
+average self rating neg: 0.000106919
+average self rating zero: 0.00932273
+variance self rating pos: 0.000899792
+variance self rating neg: 1.30721e-05
+variance self rating zero: 0.00088672
+average other rating pos: 0.291198
+average other rating neg: 0.0460587
+average other rating zero: 0.662743
+variance other rating pos: 0.107595
+variance other rating neg: 0.0221581
+variance other rating zero: 0.0854366
+average prob(self action): 0.54
+variance prob(self action): 0.02
+sample folders: experiments/2024-03-20-12-28-52/output.yaml experiments/2024-03-20-12-28-51/output.yaml
+================================================================================
