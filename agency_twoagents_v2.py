@@ -189,7 +189,7 @@ def create_D():
     D = utils.obj_array(num_factors)
     
     D_context = np.ones(num_states[0])/float(num_states[0])
-    D_context = np.array([0, 5, 5, 0])
+    D_context = np.array([0, 1, 1, 0])
 
     D_self_action = np.ones(num_states[1])/float(num_states[1])
     
