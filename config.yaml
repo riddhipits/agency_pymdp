@@ -2,7 +2,7 @@
 description: 
   post-TNB session; adding priors;
   T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
-  actionpref = 0.0, noactionpref = 0.0,  lr_pA = 0.1, habit_press = ,
+  actionpref = 0.5, noactionpref = 0.0,  lr_pA = 0.1, habit_press = ,
   expcondition = s_zer_o_zer, p_outcome_env = 1.0
 p_outcome: 0.6
 outcomepref: 5.0
