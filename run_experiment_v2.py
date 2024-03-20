@@ -148,7 +148,8 @@ if __name__ == "__main__":
 
     env, my_agent = setup_generative_model_and_process(
         config["generative-process"], 
-        config["p_outcome"], config["outcomepref"], config["actionpref"], config["noactionpref"], config["lr_pA"]
+        config["p_outcome"], config["outcomepref"], config["actionpref"], 
+        config["noactionpref"], config["lr_pA"], config["habit_press"]
     )
     if not debug:
         experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
