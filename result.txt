@@ -1,0 +1,22 @@
+experiment:   post-TNB session; adding priors;
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0,
+  actionpref = 0.0, noactionpref = 1.0,  lr_pA = 0.1,
+  expcondition = s_zer_o_neg, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 10
+average self rating pos: 0.294661
+average self rating neg: 0.266751
+average self rating zero: 0.438588
+variance self rating pos: 0.161281
+variance self rating neg: 0.13357
+variance self rating zero: 0.042738
+average other rating pos: 0.955319
+average other rating neg: 0.000360404
+average other rating zero: 0.0443208
+variance other rating pos: 0.00694901
+variance other rating neg: 0.00016578
+variance other rating zero: 0.00680022
+average prob(self action): 0.164
+variance prob(self action): 0.238964
+sample folders: experiments/2024-03-20-13-19-46/output.yaml experiments/2024-03-20-13-19-45/output.yaml experiments/2024-03-20-13-19-44/output.yaml experiments/2024-03-20-13-19-43/output.yaml experiments/2024-03-20-13-19-42/output.yaml experiments/2024-03-20-13-19-41/output.yaml experiments/2024-03-20-13-19-40/output.yaml experiments/2024-03-20-13-19-39/output.yaml experiments/2024-03-20-13-19-38/output.yaml experiments/2024-03-20-13-19-37/output.yaml
+================================================================================
