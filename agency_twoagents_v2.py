@@ -358,7 +358,7 @@ def run_active_inference_loop(my_agent, my_env, T, verbose) -> dict:
     
     for t in range(T):
         
-        q_pi, efe = my_agent.infer_policies()
+        q_pi, efe = my_agent.infer_policies(gamma = 100.0)
         # q_pi, efe = my_agent.infer_policies(gamma = 100.0)
 
         chosen_action_id = my_agent.sample_action()
