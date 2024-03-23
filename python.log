@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment_v2.py", line 155, in <module>
+    experiment_dir, git_hash = setup_log_dir(data_dir, file_name)
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment_v2.py", line 42, in setup_log_dir
+    git_repo.index.commit(f"Experiment {current_time_str}")
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/index/base.py", line 1050, in commit
+    rval = Commit.create_from_tree(
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/objects/commit.py", line 613, in create_from_tree
+    repo.head.set_commit(new_commit, logmsg=message)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/symbolic.py", line 313, in set_commit
+    self.set_object(commit, logmsg)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/symbolic.py", line 346, in set_object
+    return self._get_reference().set_object(object, logmsg)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/reference.py", line 86, in set_object
+    super(Reference, self).set_object(object, logmsg)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/symbolic.py", line 343, in set_object
+    return self.set_reference(object, logmsg)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/symbolic.py", line 427, in set_reference
+    self.log_append(oldbinsha, logmsg)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/symbolic.py", line 496, in log_append
+    return RefLog.append_entry(committer_or_reader, RefLog.path(self), oldbinsha, newbinsha, message)
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/refs/log.py", line 317, in append_entry
+    lf._obtain_lock_or_raise()
+  File "/opt/anaconda3/lib/python3.9/site-packages/git/util.py", line 966, in _obtain_lock_or_raise
+    raise IOError(
+OSError: Lock for file '/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/.git/logs/refs/heads/experiments' did already exist, delete '/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/.git/logs/refs/heads/experiments.lock' in case the lock is illegal
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment_v2.py", line 157, in <module>
+    multi_log = agency_twoagents_v2.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents_v2.py", line 361, in run_active_inference_loop
+    q_pi, efe = my_agent.infer_policies(gamma = 16.0)
+TypeError: infer_policies() got an unexpected keyword argument 'gamma'
