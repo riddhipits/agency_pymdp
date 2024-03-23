@@ -19,7 +19,7 @@ rm python.log 2> /dev/null
 echo "Starting $repeats runs of $config_name"
 for i in $(seq $repeats)
 do
-    sleep $i && python run_experiment.py $config_name experiments 1>/dev/null 2>>python.log &
+    sleep $i && python run_experiment_v2.py $config_name experiments 1>/dev/null 2>>python.log &
 done
 echo "Spawned $repeats experiments waiting for results."
 wait
