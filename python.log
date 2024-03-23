@@ -54,3 +54,9 @@ Traceback (most recent call last):
   File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents_v2.py", line 361, in run_active_inference_loop
     q_pi, efe = my_agent.infer_policies(gamma = 16.0)
 TypeError: infer_policies() got an unexpected keyword argument 'gamma'
+Traceback (most recent call last):
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/run_experiment_v2.py", line 157, in <module>
+    multi_log = agency_twoagents_v2.run_active_inference_loop(
+  File "/Users/riddhi/Library/CloudStorage/OneDrive-Nexus365/Oxford/Research Projects/Ox_AgencyParadox/1_Data&Analysis/Models/agency_pymdp/agency_twoagents_v2.py", line 361, in run_active_inference_loop
+    q_pi, efe = my_agent.infer_policies(gamma = 16.0)
+TypeError: infer_policies() got an unexpected keyword argument 'gamma'
