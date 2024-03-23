@@ -1,0 +1,22 @@
+experiment:   post-TNB session; adding priors; gamma = 100.0
+  T = 25,  p_outcome = 0.6,  outcomepref = 5.0, gamma = 100.0
+  actionpref = 0.3, noactionpref = 0.1,  lr_pA = 0.1, habit_press = 50.0,
+  expcondition = s_zer_o_pos, p_outcome_env = 1.0
+p_outcome: 0.6
+runs: 2
+average self rating pos: 0.525993
+average self rating neg: 0.474007
+average self rating zero: 0.0519864
+variance self rating pos: 0.0835615
+variance self rating neg: 0.0835615
+variance self rating zero: 0.167123
+average other rating pos: 0.991263
+average other rating neg: 0.00873653
+average other rating zero: 0.982527
+variance other rating pos: 0.00377771
+variance other rating neg: 0.00377771
+variance other rating zero: 0.00755542
+average prob(self action): 0.98
+variance prob(self action): 0.02
+sample folders: experiments/2024-03-23-11-39-00/output.yaml experiments/2024-03-23-11-38-56/output.yaml
+================================================================================
