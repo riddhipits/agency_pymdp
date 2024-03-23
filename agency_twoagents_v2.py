@@ -432,7 +432,7 @@ def plot_all_choices_beliefs(log, env, savefig = 1, fig_file_name = None):
 
     fig, axes = plt.subplots(nrows = 4, ncols = 1, figsize = (15,10))
     
-    exp_cond_text = f'Experimental Condition: {env.expcondition}'
+    exp_cond_text = f'Experimental Condition (v2): {env.expcondition}'
     plt.text(0.35, -0.45, exp_cond_text, transform=plt.gca().transAxes,
              fontsize = 14, bbox = dict(facecolor = 'red', alpha = 0.5))
 
